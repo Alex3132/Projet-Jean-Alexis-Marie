@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 class User
 {
+    private $_id;
     private $_login;
     private $_mdp;
     private $_mail;
@@ -19,13 +20,20 @@ class User
 
     /**
      * Default constructor
+     * @param mixed $args 
      */
-    public function __construct(string $login = null, string $mdp = null, string $mail = null, string $profil = null)
+    public function __contruct($args = null)
     {
-        $this->_login = $login;
-        $this->_mdp = $mdp;
-        $this->_mail = $mail;
-        $this->setProfil($profil);
+		// Si notre paramètre est un tableau non vide.
+		if(is_array($args) && !empty($args))
+		{
+			// Alors pour chaque clé, on récupère sa valeur.
+			foreach($args as $key => $value)
+			{
+				// Si la propriété de la classe existe, alors on met à jour sa valeur.
+				if(isset($this->$key))	$this->$key = $value;
+			}
+        }
     }
 
     /**
