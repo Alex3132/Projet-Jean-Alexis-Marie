@@ -47,7 +47,7 @@ class User
      */
     public function setLogin($log)
     {
-        $this->_login = $log;
+        $this->login = $log;
     }
 
     /**
@@ -56,7 +56,7 @@ class User
      */
     public function setMdp($mdp)
     {
-        $this->_mdp = $mdp;
+        $this->mdp = $mdp;
     }
 
     /**
@@ -65,7 +65,7 @@ class User
      */
     public function setMail($mail)
     {
-        $this->_mail = $mail;
+        $this->mail = $mail;
     }
 
     /**
@@ -79,7 +79,7 @@ class User
             throw new Exception("Bad profil");
         }
 
-        $this->_profil = $profil;
+        $this->profil = $profil;
     }
 
     /**
@@ -89,7 +89,7 @@ class User
      */
     public function getLogin() : string
     {
-        return $this->_login;
+        return $this->login;
     }
 
     /**
@@ -99,7 +99,7 @@ class User
      */
     public function getMdp() : string
     {
-        return $this->_mdp;
+        return $this->mdp;
     }
 
     /**
@@ -109,7 +109,7 @@ class User
      */
     public function getMail() : string
     {
-        return $this->_mail;
+        return $this->mail;
     }
 
     /**
@@ -119,6 +119,6 @@ class User
      */
     public function getProfil() : string
     {
-        return $this->_profil;
+        return $this->profil;
     }
 }
