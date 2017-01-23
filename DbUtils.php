@@ -59,7 +59,7 @@ class DbUtils{
      * @param mixed $cmd
      * @return MongoDB\Driver\Cursor
      */
-    public function ExecuteCommand($cmd) :MongoDB\Driver\Cursor
+    public function ExecuteCommand($cmd) : MongoDB\Driver\Cursor
     {
         try
         {
@@ -77,7 +77,7 @@ class DbUtils{
      * @param mixed $cmd
      * @return array
      */
-    public function ExecuteCommandToArray($cmd)
+    public function ExecuteCommandToArray($cmd) : array
     {
         try
         {
@@ -173,6 +173,7 @@ class DbUtils{
 try
 {
 	$connect = new DbUtils("geo_france");
+
 }
 catch (Exception $exception)
 {
