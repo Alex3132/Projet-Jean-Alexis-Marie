@@ -26,23 +26,23 @@ class Regions
 }
     }
     
-    public function setId($id)
+    public function setId($id) 
     {
         $this->id = $id;
     }
     
-    public function setNom($nom)
+    public function setNom($nom) 
     {
         $this->nom = $nom;
     }
     
-    public function getId()
+    public function getId() : double
     {
         return $this->id;
         
     }
     
-    public function getNom()
+    public function getNom() : string
     {
         return $this->nom;
     }
