@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+ require("Coord.php");
 
 /**
  * User short summary.
@@ -17,8 +18,8 @@ class Villes
     private $nom;
     private $cp;
     private $pop;
-    private $lat;
-    private $lon;
+    private $coord;
+   
 
     /**
      * Default constructor
@@ -28,6 +29,7 @@ class Villes
      */
     public function __contruct($args = null)
     {
+        $this->coord = new Coord();
 		// Si notre paramètre est un tableau non vide.
 		if(is_array($args) && !empty($args))
 		{
@@ -88,7 +90,7 @@ class Villes
      */
  public function setLat($lat)
     {
-        $this->lat = $lat;
+        $this->coord->lat = $lat;
     }
     
      /**
@@ -97,7 +99,7 @@ class Villes
      */
      public function setLon($lon)
     {
-        $this->lon = $lon;
+        $this->coord->lon = $lon;
     }
   
     /**
@@ -105,7 +107,7 @@ class Villes
      * @param mixed $id
      * @return mixed
      */
-    public function getId($id) : double
+    public function getId() : double
     {
         return $this->id;
     }
@@ -115,7 +117,7 @@ class Villes
      * @param mixed $id_dept
      * @return mixed
      */
-    public function getId_Dept($id_dept) : double
+    public function getId_Dept() : double
     {
         return $this->id_dept;
     }
@@ -126,7 +128,7 @@ class Villes
      * @param mixed $nom
      * @return mixed
      */
-    public function getNom($nom) : string
+    public function getNom() : string
     {
         return $this->nom;
     }
@@ -136,7 +138,7 @@ class Villes
      * @param mixed $cp
      * @return mixed
      */
-    public function getCp($cp) : string
+    public function getCp() : string
     {
         return $this->cp;
     }
@@ -146,7 +148,7 @@ class Villes
      * @param mixed $pop
      * @return mixed
      */
-    public function getPop($pop) : double
+    public function getPop() : double
     {
         return $this->pop;
     }
@@ -156,9 +158,9 @@ class Villes
      * @param mixed $lat
      * @return mixed
      */
-    public function getLat($lat) : double
+    public function getLat() : double
     {
-        return $this->lat;
+        return   $this->coord->lat;
     }
     
     /**
@@ -166,8 +168,8 @@ class Villes
      * @param mixed $lon
      * @return mixed
      */
-    public function getLon($lon) : double
+    public function getLon() : double
     {
-        return $this->lon;
+        return   $this->coord->lon;
     }
 }
