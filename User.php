@@ -32,10 +32,10 @@ class User
 		// Si notre paramètre est un tableau non vide.
 		if(is_array($args) && !empty($args))
 		{
-			// Alors pour chaque clé, on récupère sa valeur.
+			// Alors pour chaque cl�, on récupère sa valeur.
 			foreach($args as $key => $value)
 			{
-				// Si la propriété de la classe existe, alors on met à jour sa valeur.
+				// Si la propri�t� de la classe existe, alors on met � jour sa valeur.
 				if(isset($this->$key))	$this->$key = $value;
 			}
         }
@@ -87,7 +87,7 @@ class User
      * @param mixed $log
      * @return mixed
      */
-    public function getLogin($log) : string
+    public function getLogin() : string
     {
         return $this->_login;
     }
@@ -97,7 +97,7 @@ class User
      * @param mixed $mdp
      * @return mixed
      */
-    public function getMdp($mdp) : string
+    public function getMdp() : string
     {
         return $this->_mdp;
     }
@@ -107,7 +107,7 @@ class User
      * @param mixed $mail
      * @return mixed
      */
-    public function getMail($mail) : string
+    public function getMail() : string
     {
         return $this->_mail;
     }
@@ -117,7 +117,7 @@ class User
      * @param mixed $profil
      * @return mixed
      */
-    public function getProfil($profil) : string
+    public function getProfil() : string
     {
         return $this->_profil;
     }
