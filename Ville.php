@@ -24,9 +24,6 @@ class Villes
      * Default constructor
      * @param mixed $args
      *
-     * $args = array();
-     * $args['login'] = "C'est mon login";
-     * $args['mdp'] = "C'est mon mdp";
      * 
      */
     public function __contruct($args = null)
@@ -42,7 +39,22 @@ class Villes
 			}
         }
     }
-
+/**
+     * Set Id
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+       $this->id = $id;
+    }
+    /**
+     * Set id_dept
+     * @param mixed $id_dept
+     */
+    public function setId_dept($id_dept)
+    {
+       $this->id_dept = $id_dept;
+    }
     /**
      * Set Nom
      * @param mixed $nom
@@ -74,7 +86,7 @@ class Villes
      * Set lat
      * @param mixed $lat
      */
- public function setPop($lat)
+ public function setLat($lat)
     {
         $this->lat = $lat;
     }
@@ -83,11 +95,31 @@ class Villes
      * Set lon
      * @param mixed $lon
      */
-     public function setPop($lon)
+     public function setLon($lon)
     {
         $this->lon = $lon;
     }
   
+    /**
+     * Get id
+     * @param mixed $id
+     * @return mixed
+     */
+    public function getId($id) : double
+    {
+        return $this->id;
+    }
+
+    /**
+     * Get id_dept
+     * @param mixed $id_dept
+     * @return mixed
+     */
+    public function getId_Dept($id_dept) : double
+    {
+        return $this->id_dept;
+    }
+
 
     /**
      * Get nom
@@ -134,7 +166,7 @@ class Villes
      * @param mixed $lon
      * @return mixed
      */
-    public function getLat($lon) : double
+    public function getLon($lon) : double
     {
         return $this->lon;
     }
