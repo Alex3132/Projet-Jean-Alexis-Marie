@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * User short summary.
  *
@@ -18,14 +20,17 @@ class User
     /**
      * Default constructor
      */
-    public function __construct()
+    public function __construct(string $login = null, string $mdp = null, string $mail = null, string $profil = null)
     {
-
+        $this->_login = $login;
+        $this->_mdp = $mdp;
+        $this->_mail = $mail;
+        $this->setProfil($profil);
     }
 
     /**
      * Set login
-     * @param mixed $log 
+     * @param mixed $log
      */
     public function setLogin($log)
     {
@@ -34,16 +39,16 @@ class User
 
     /**
      * Set mdp
-     * @param mixed $mdp 
+     * @param mixed $mdp
      */
     public function setMdp($mdp)
     {
-        $this->_mdp = $$mdp;
+        $this->_mdp = $mdp;
     }
 
     /**
      * Set mail
-     * @param mixed $mail 
+     * @param mixed $mail
      */
     public function setMail($mail)
     {
@@ -52,11 +57,11 @@ class User
 
     /**
      * Set mail
-     * @param mixed $profil 
+     * @param mixed $profil
      */
     public function setProfil($profil)
     {
-        if($profil != "admin" && $profil != "edit") 
+        if($profil != "admin" && $profil != "edit")
         {
             throw new Exception("Bad profil");
         }
@@ -66,40 +71,40 @@ class User
 
     /**
      * Get login
-     * @param mixed $log 
+     * @param mixed $log
      * @return mixed
      */
-    public function getLogin($log)
+    public function getLogin($log) : string
     {
         return $this->_login;
     }
 
     /**
      * Get mdp
-     * @param mixed $mdp 
+     * @param mixed $mdp
      * @return mixed
      */
-    public function getMdp($mdp)
+    public function getMdp($mdp) : string
     {
         return $this->_mdp;
     }
 
     /**
      * Get mail
-     * @param mixed $mail 
+     * @param mixed $mail
      * @return mixed
      */
-    public function getMail($mail)
+    public function getMail($mail) : string
     {
-        return $this->_mail;;
+        return $this->_mail;
     }
 
     /**
      * Get profil
-     * @param mixed $profil 
+     * @param mixed $profil
      * @return mixed
      */
-    public function getProfil($profil)
+    public function getProfil($profil) : string
     {
         return $this->_profil;
     }
