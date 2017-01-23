@@ -12,25 +12,30 @@ declare(strict_types=1);
  */
 class User
 {
-    private $_id;
-    private $_login;
-    private $_mdp;
-    private $_mail;
-    private $_profil;
+    private $id;
+    private $login;
+    private $mdp;
+    private $mail;
+    private $profil;
 
     /**
      * Default constructor
-     * @param mixed $args 
+     * @param mixed $args
+     *
+     * $args = array();
+     * $args['login'] = "C'est mon login";
+     * $args['mdp'] = "C'est mon mdp";
+     * 
      */
     public function __contruct($args = null)
     {
-		// Si notre paramètre est un tableau non vide.
+		// Si notre paramÃ¨tre est un tableau non vide.
 		if(is_array($args) && !empty($args))
 		{
-			// Alors pour chaque clé, on récupère sa valeur.
+			// Alors pour chaque clÃ©, on rÃ©cupÃ¨re sa valeur.
 			foreach($args as $key => $value)
 			{
-				// Si la propriété de la classe existe, alors on met à jour sa valeur.
+				// Si la propriÃ©tÃ© de la classe existe, alors on met Ã  jour sa valeur.
 				if(isset($this->$key))	$this->$key = $value;
 			}
         }
