@@ -1,10 +1,36 @@
 <!Doctype html>
-<html>
-<header>
+<html lang="fr">
 
-</header>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+</head>
 
 <body>
+
+    <header>
+
+
+        <div>
+
+
+            <img>
+
+
+            <h1></h1>
+
+            <img>
+
+        </div>
+
+
+
+    </header>
+
+
+    <nav></nav>
+
 
 
 </body>
