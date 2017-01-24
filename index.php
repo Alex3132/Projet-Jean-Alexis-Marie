@@ -1,12 +1,22 @@
 <?php
 session_start();
+if(!empty($_GET['page']))
+{
+	//Remplace la valeur par defaut par celle de l'URL
+	$page = $_GET['page'];
+} else
+{
+    $page = 'accueil';
+}
+
 ?>
     <!DOCTYPE html>
     <html lang="fr">
 
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+        <title><?php $page ?></title>
 
     </head>
 

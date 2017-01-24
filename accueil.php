@@ -1,4 +1,4 @@
-<div>
+<div id="carteFrance">
 
     <?php include("img/carte.php");  ?>
 
