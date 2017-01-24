@@ -75,7 +75,25 @@ class DbUtils{
         unset($this->manager);
     }
 
+    /**
+     * Verify if user exists
+     * @param mixed $pseudo 
+     * @param mixed $pwd 
+     */
+    public function getUser($pseudo, $pwd) : User {
 
+        if($pseudo != "" && $pwd != "") {
+
+            $filter = ['login' => $pseudo, 'pwd' => $pwd];
+            $users = $this->ExecuteQueryToArray(DbUtils::COLUSERS, $filter, null);
+            if(!empty($users) && count($users) == 1) {
+                $user = new User($users[0]);
+                return $user;
+            }
+        }
+
+        throw new Exception("unknow user");
+    }
 
     /**
      * Find Ville vy its id
@@ -277,7 +295,7 @@ class DbUtils{
     }
     
    
-    private function FindVilleByNom($nom){
+    public function FindVilleByNom($nom){
     
     if($nom){
         

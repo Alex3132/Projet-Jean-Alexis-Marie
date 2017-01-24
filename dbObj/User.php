@@ -25,12 +25,12 @@ class User
      * $args = array();
      * $args['login'] = "C'est mon login";
      * $args['mdp'] = "C'est mon mdp";
-     * 
+     *
      */
-    public function __contruct($args = null)
+    public function __construct($args = null)
     {
 		// Si notre paramÃ¨tre est un tableau non vide.
-		if(is_array($args) && !empty($args))
+		if($args != null)
 		{
 			// Alors pour chaque clé, on rÃ©cupÃ¨re sa valeur.
 			foreach($args as $key => $value)
@@ -107,7 +107,7 @@ class User
      * @param mixed $mail
      * @return mixed
      */
-    public function getMail() 
+    public function getMail()
     {
         return $this->mail;
     }

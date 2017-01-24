@@ -11,6 +11,8 @@ if(!empty($_GET['page']))
     $page = 'accueil';
 }
 
+
+
 ?>
 
 <div id="menu">

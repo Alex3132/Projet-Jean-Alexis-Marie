@@ -7,3 +7,11 @@
     height: 50%;
     margin : auto;
 }
+
+#errorUser {
+    color:red;
+}
+
+.hidden {
+    visibility:hidden;
+}

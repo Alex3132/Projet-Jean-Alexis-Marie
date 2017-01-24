@@ -8,7 +8,7 @@ if(!empty($_GET['ville']))
 	//Remplace la valeur par defaut par celle de l'URL
 	$idville = $_GET['ville'];
     $ville = $connect->findVilleById($idville);
-    if(isset($ville)) {
+    if($ville != null) {
         $dep = $connect->findDepById($ville->getId_Dept());
         if(isset($dep)) {
             $region = $connect->findRegionById($dep->getIdRegion());
