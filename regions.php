@@ -16,14 +16,14 @@ class Regions
     public function __construct($args == null)
     {
         
-       f(is_array($args) && !empty($args))
+       if(is_array($args) && !empty($args))
 		{	
 			foreach($args as $key => $value)
 			{
 				if(isset($this->$key))	$this->$key = $value;
-    }
+            }
     
-}
+        }
     }
     
     public function setId($id) 
@@ -46,3 +46,4 @@ class Regions
     {
         return $this->nom;
     }
+}
