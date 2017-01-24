@@ -37,15 +37,15 @@ if(!empty($_GET['ville']))
     <div id="recherche">
         <div class="nom">
             <label>Nom :</label>
-            <input type="text" id="nom" value="<?php echo isset($ville) ? $ville->getNom() : ""; ?>">
+            <input type="text" name="nom" id="nom" value="<?php echo isset($ville) ? $ville->getNom() : ""; ?>">
         </div>
         <div class="dept">
             <label>Département : </label>
-            <input type="text" id="dept" value="<?php echo isset($dep) ? $dep->getNom() : ""; ?>" />
+            <input type="text" id="dept" name="dept" value="<?php echo isset($dep) ? $dep->getNom() : ""; ?>" />
         </div>
         <div class="region">
             <label>Région : </label>
-            <input type="text" id="region" value="<?php echo isset($dep) ? $region->getNom() : ""; ?>" />
+            <input type="text" id="region" name="region" value="<?php echo isset($dep) ? $region->getNom() : ""; ?>" />
         </div>
         <input type="submit" value="Envoyer">
     </div>
@@ -60,10 +60,15 @@ if(!empty($_GET['ville']))
 
     <?php
     
-    if(!empty($_GET['ville'])){
-    $villerep = $connect->FindVilleByNom($nom);
-    if(is_array($villerep)){
-        foreach($key as $value){
+    if(isset($_POST['nom'])){
+        $nomville = $_POST['nom'];
+        echo " Ville : $nomville";
+    $villerep = $connect->FindVilleByNom($nomville);
+       
+        
+        
+    
+        foreach($villerep[0] as $key => $value){
             echo "<div class=\"$key\">$key  :  $value.<div>\n";
             
         }
