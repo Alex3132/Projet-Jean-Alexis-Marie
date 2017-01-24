@@ -1,6 +1,11 @@
 <?php
 declare(strict_types=1);
-require_once()
+require_once("./dbObj/Ville.php");
+require_once("./dbObj/Departement.php");
+require_once("./dbObj/Region.php");
+require_once("./dbObj/User.php");
+require_once("./dbObj/Coord.php");
+
 // getUser(login) : User;
 // existUser(login) : bool
 // addUser(User user) : User;
@@ -8,7 +13,7 @@ require_once()
 // findVilleById(id) : Ville
 // findVille(nom, dep, region) : Ville
 // findDep(nom) :Departement
-// 
+//
 
 /**
  * DbUtils short summary.
@@ -65,7 +70,9 @@ class DbUtils{
         unset($this->manager);
     }
 
-    public function
+    public function findVille($idville) {
+        //$filter = ['_id' => ['$gte' => $min_pop_cities]];
+    }
 
     /**
      * Get current server
