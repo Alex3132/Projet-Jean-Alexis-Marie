@@ -17,5 +17,17 @@ if ($page == "accueil")
 } 
 else if ($page == "recherche")
 {
+   include ("recherche.php"); 
+}
+else if ($page == "login")
+{
+    include ("login.php");
+}
+else if ($page == "inscription")
+{
+    include("inscription.php");
+}
+else if ($page == "maintenance"){
     
+    include("maintenance.php");
 }
