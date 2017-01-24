@@ -299,7 +299,7 @@ class DbUtils{
     
     if($nom){
         
-        $filter = ['nom' => $nom];
+        $filter = ['nom' =>['$regex' => new MONGODB\BSON\Regex($nom, 'i')]];
            $options = ['projection' => ['nom' => 1, 'lon' => 1, 'lat' => 1, '_id' => 0, '_id_dept' => 1]];
 
     }else{
@@ -307,7 +307,7 @@ class DbUtils{
         throw new exception("no name of city written");
     }
     
-    $array = $this->ExecuteQueryToArray($colname, $filter, $options);
+    $array = $this->ExecuteQueryToArray('villes', $filter, $options);
     return $array;
        }
     }
