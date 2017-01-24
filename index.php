@@ -1,4 +1,4 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -11,10 +11,11 @@
 
     <?php include('header.php');?>
 
+    <?php include('menu.php'); ?>
 
-        <?php include('menu.php'); ?>
+    <?php include('fonct.php') ?>
 
-            <?php include('footer.php'); ?>
+    <?php include('footer.php'); ?>
 
 </body>
 
