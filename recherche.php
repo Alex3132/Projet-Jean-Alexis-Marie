@@ -20,7 +20,7 @@ if(!empty($_GET['ville']))
     {
         //Remplace la valeur par defaut par celle de l'URL
         $nom = $_POST['ville'];
-        $ville = $connect->findVilleByNom($idville);
+        $ville = $connect->findVilleByNom($nom);
         if(isset($ville)) {
             $dep = $connect->findDepById($ville->getId_Dept());
             if(isset($dep)) {
@@ -58,6 +58,18 @@ if(!empty($_GET['ville']))
 
 <div id="resultat">
 
+    <?php
+    
+    if(!empty($_GET['ville'])){
+    $villerep = $connect->FindVilleByNom($nom);
+    if(is_array($villerep)){
+        foreach($key as $value){
+            echo "<div class=\"$key\">$key  :  $value.<div>\n";
+            
+        }
+        
+    }
+    ?>
     <div class="local">
     </div>
 

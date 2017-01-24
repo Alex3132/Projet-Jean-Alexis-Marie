@@ -275,7 +275,27 @@ class DbUtils{
             die(sprintf('<p class="error">Erreur PDO <em>%s</em></p>'."\n", $exception->getMessage()));
         }
     }
-}
+    
+   
+    private function FindVilleByNom($nom){
+    
+    if($nom){
+        
+        $filter = ['nom' => $nom];
+           $options = ['projection' => ['nom' => 1, 'lon' => 1, 'lat' => 1, '_id' => 0, '_id_dept' => 1]];
+
+    }else{
+        
+        throw new exception("no name of city written");
+    }
+    
+    $array = $this->ExecuteQueryToArray($colname, $filter, $options);
+    return $array;
+       }
+    }
+    
+
+
 
 try
 {
