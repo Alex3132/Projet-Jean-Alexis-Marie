@@ -1,2 +1,5 @@
 *.phpproj
 *.suo
+*.sln
+*.config
+MONGODB.phpproj.user

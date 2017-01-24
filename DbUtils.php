@@ -1,6 +1,12 @@
 <?php
 declare(strict_types=1);
 
+// getUser(login) : User;
+// existUser(login) : bool
+// addUser(User user) : User;
+// 
+// find
+
 /**
  * DbUtils short summary.
  *
@@ -25,9 +31,8 @@ class DbUtils{
      * Summary of __construct
      * @param mixed $database :  databe name
      */
-    public function __construct($database) // Constructeur
+    public function __construct() // Constructeur
     {
-        $this->dbname = $database;
         try
         {
             $this->manager = new MongoDB\Driver\Manager("mongodb://".$this->dbhost.":27017");
@@ -59,7 +64,7 @@ class DbUtils{
      * @param mixed $cmd
      * @return MongoDB\Driver\Cursor
      */
-    public function ExecuteCommand($cmd) : MongoDB\Driver\Cursor
+    private function ExecuteCommand($cmd) : MongoDB\Driver\Cursor
     {
         try
         {
@@ -77,7 +82,7 @@ class DbUtils{
      * @param mixed $cmd
      * @return array
      */
-    public function ExecuteCommandToArray($cmd) : array
+    private function ExecuteCommandToArray($cmd) : array
     {
         try
         {
@@ -96,7 +101,7 @@ class DbUtils{
      * @param mixed $cmd
      * @return MongoDB\Driver\Cursor
      */
-    public function ExecuteAdminCommand($cmd)
+    private function ExecuteAdminCommand($cmd)
     {
         try
         {
@@ -114,7 +119,7 @@ class DbUtils{
      * @param mixed $cmd
      * @return array
      */
-    public function ExecuteAdminCommandToArray($cmd)
+    private function ExecuteAdminCommandToArray($cmd)
     {
         try
         {
@@ -135,7 +140,7 @@ class DbUtils{
      * @param mixed $queryoptions
      * @return MongoDB\Driver\Cursor
      */
-    public function ExecuteQuery($collection, $filter, $queryoptions) :MongoDB\Driver\Cursor
+    private function ExecuteQuery($collection, $filter, $queryoptions) :MongoDB\Driver\Cursor
     {
         try
         {
@@ -155,7 +160,7 @@ class DbUtils{
      * @param mixed $queryoptions
      * @return array
      */
-    public function ExecuteQueryToArray($collection, $filter, $queryoptions) : array
+    private function ExecuteQueryToArray($collection, $filter, $queryoptions) : array
     {
         try
         {
