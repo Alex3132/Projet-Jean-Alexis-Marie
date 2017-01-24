@@ -1,22 +1,25 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php
+session_start();
+?>
+    <!DOCTYPE html>
+    <html lang="fr">
 
-<head>
-    <meta charset="utf-8">
-    <title></title>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-    <?php include('header.php');?>
+        <?php include('header.php');?>
 
-    <?php include('menu.php'); ?>
+            <?php include('menu.php'); ?>
 
-    <?php include('fonct.php') ?>
+                <?php include('fonct.php') ?>
 
-    <?php include('footer.php'); ?>
+                    <?php include('footer.php'); ?>
 
-</body>
+    </body>
 
-</html>
+    </html>
