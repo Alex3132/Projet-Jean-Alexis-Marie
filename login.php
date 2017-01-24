@@ -7,7 +7,7 @@
         </div>
         <div class="password">
             <label>Mot de passe :</label>
-            <input type="passeword" id="ville">
+            <input type="password" id="ville">
         </div>
         <input type="submit" value="Envoyer">
 

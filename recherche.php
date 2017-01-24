@@ -7,11 +7,25 @@ if(!empty($_GET['ville']))
 {
 	//Remplace la valeur par defaut par celle de l'URL
 	$idville = $_GET['ville'];
-    $ville = $connect->findVille($idville);
+    $ville = $connect->findVilleById($idville);
     if(isset($ville)) {
-        $dep = $connect->findDep($ville->getId_Dept());
+        $dep = $connect->findDepById($ville->getId_Dept());
         if(isset($dep)) {
-            $region = $connect->findRegion($dep->getIdRegion());
+            $region = $connect->findRegionById($dep->getIdRegion());
+        }
+    }
+}else {
+
+    if(!empty($_POST['ville']))
+    {
+        //Remplace la valeur par defaut par celle de l'URL
+        $nom = $_POST['ville'];
+        $ville = $connect->findVilleByNom($idville);
+        if(isset($ville)) {
+            $dep = $connect->findDepById($ville->getId_Dept());
+            if(isset($dep)) {
+                $region = $connect->findRegionById($dep->getIdRegion());
+            }
         }
     }
 }

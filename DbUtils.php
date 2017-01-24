@@ -82,7 +82,7 @@ class DbUtils{
      * @param mixed $idville
      * @return null|Ville
      */
-    public function findVille($idville) : Ville {
+    public function findVilleById($idville) : Ville {
 
         $obj = $this->findObjectById(DbUtils::COLVILLES, $idville, null);
         if(null != $obj) {
@@ -101,7 +101,7 @@ class DbUtils{
      * @param mixed $iddep
      * @return Departement|null
      */
-    public function findDep($id) : Departement {
+    public function findDepById($id) : Departement {
         $obj = $this->findObjectById(DbUtils::COLDEPS, $id, null);
         if(null != $obj) {
 
@@ -117,7 +117,7 @@ class DbUtils{
      * @param mixed $idregion
      * @return null|Region
      */
-    public function findRegion($id) : Region {
+    public function findRegionById($id) : Region {
         $obj = $this->findObjectById(DbUtils::COLREGIONS, $id, null);
         if(null != $obj) {
 
@@ -267,7 +267,6 @@ class DbUtils{
         try
         {
             $command = new MongoDB\Driver\Query($filter, $queryoptions);
-            $test = "$this->dbname.$collection";
             $cursor = $this->manager->executeQuery("$this->dbname.$collection", $command);
         	return $cursor->toArray();
         }
