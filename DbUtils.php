@@ -32,6 +32,11 @@ class DbUtils{
     private $manager = null;
     private $command = null;
 
+    CONST COLVILLES = "villes";
+    CONST COLDEPS = "departements";
+    CONST COLREGIONS = "regions";
+    CONST COLUSERS = "users";
+
 
     private $jsFunc_GetNexSequence = 'function getNextSequence(%s) {
                                            var ret = db.counters.findAndModify(
@@ -70,8 +75,56 @@ class DbUtils{
         unset($this->manager);
     }
 
-    public function findVille($idville) {
-        //$filter = ['_id' => ['$gte' => $min_pop_cities]];
+
+
+    /**
+     * Find Ville vy its id
+     * @param mixed $idville
+     * @return null|Ville
+     */
+    public function findVille($idville) : Ville {
+
+        $obj = $this->findObjectById(DbUtils::COLVILLES, $idville, null);
+        if(null != $obj) {
+
+            $ville = new Ville($obj);
+            //$ville = (Ville)$obj;
+            return $ville;
+        }
+
+        throw new Exception("unknown ville");
+    }
+
+
+    /**
+     * Find dep by its id
+     * @param mixed $iddep
+     * @return Departement|null
+     */
+    public function findDep($id) : Departement {
+        $obj = $this->findObjectById(DbUtils::COLDEPS, $id, null);
+        if(null != $obj) {
+
+            $dep = new Departement($obj);
+            return $dep;
+        }
+
+        throw new Exception("unknown dep");
+    }
+
+    /**
+     * Find region by its id
+     * @param mixed $idregion
+     * @return null|Region
+     */
+    public function findRegion($id) : Region {
+        $obj = $this->findObjectById(DbUtils::COLREGIONS, $id, null);
+        if(null != $obj) {
+
+            return new Region($obj);
+        }
+
+        throw new Exception("unknown region");
     }
 
     /**
@@ -82,6 +135,31 @@ class DbUtils{
         $readpref = new MongoDB\Driver\ReadPreference(MongoDB\Driver\ReadPreference::RP_PRIMARY);
         return $this->manager->selectServer($readpref);
     }
+
+    /**
+     * Find an object by its _id
+     * @param mixed $colname
+     * @param mixed $id
+     * @throws Exception
+     * @return mixed
+     */
+    private function findObjectById($colname, $id) {
+
+        $idint = intval($id);
+        if($idint != 0) {
+            $filter = ['_id' => $idint ];
+        } else {
+            throw new Exception("id is not an integer");
+        }
+
+        $array = $this->ExecuteQueryToArray($colname, $filter, null);
+        if(!empty($array)) {
+            return $array[0];
+        }
+
+        return null;
+    }
+
 
     /**
      * Excecute command on current database and return a MongoDB\Driver\Cursor
@@ -164,7 +242,7 @@ class DbUtils{
      * @param mixed $queryoptions
      * @return MongoDB\Driver\Cursor
      */
-    private function ExecuteQuery($collection, $filter, $queryoptions) :MongoDB\Driver\Cursor
+    private function ExecuteQuery($collection, $filter, $queryoptions) : MongoDB\Driver\Cursor
     {
         try
         {
@@ -189,6 +267,7 @@ class DbUtils{
         try
         {
             $command = new MongoDB\Driver\Query($filter, $queryoptions);
+            $test = "$this->dbname.$collection";
             $cursor = $this->manager->executeQuery("$this->dbname.$collection", $command);
         	return $cursor->toArray();
         }

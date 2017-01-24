@@ -10,20 +10,20 @@
  */
 class Departement
 {
-    private $id;
+    private $_id;
     private $nom;
     private $code;
-    private $id_region;
-    private $contours;
+    private $_id_region;
+    private $contours = [];
 
     /**
      * Default constructor
      * @param mixed $args
      */
-    public function __contruct($args =null)
+    public function __construct($args)
     {
         // Si notre paramÃ¨tre est un tableau non vide.
-		if(is_array($args) && !empty($args))
+		if(null != $args)
 		{
 			// Alors pour chaque clé, on rÃ©cupÃ¨re sa valeur.
 			foreach($args as $key => $value)
@@ -31,27 +31,29 @@ class Departement
 				if($key == "contours") {
                     if(is_array($value) && !empty($value))
                     {
-                        $this->contours = $value;
+                        $this->setContours($value);
                     }
-                }
 
-                // Si la propriété de la classe existe, alors on met à  jour sa valeur.
-				if(isset($this->$key))	$this->$key = $value;
+                }else {
+
+                    // Si la propriété de la classe existe, alors on met à  jour sa valeur.
+                    if(isset($this->$key) || property_exists($this, $key))	$this->$key = $value;
+                }
 			}
         }
     }
 
     /**
      * Summary of set id
-     * @param int $id 
+     * @param int $id
      */
     public function setId(int $id) {
-        $this->id = $id;
+        $this->_id = $id;
     }
 
     /**
      * Summary of set nom
-     * @param string $nom 
+     * @param string $nom
      */
     public function setNom(string $nom) {
         $this->nom = $nom;
@@ -59,15 +61,15 @@ class Departement
 
     /**
      * Summary of set id region
-     * @param int $idRegion 
+     * @param int $idRegion
      */
     public function setIdRegion(int $idRegion) {
-        $this->id_region = $idRegion;
+        $this->_id_region = $idRegion;
     }
 
     /**
      * Summary of set Code
-     * @param int $code 
+     * @param int $code
      */
     public function setCode(int $code) {
         $this->code = $code;
@@ -75,41 +77,61 @@ class Departement
 
     /**
      * Summary of set Contours
-     * @param array $contours 
+     * @param array $contours
      */
     public function setContours(array $contours) {
-        $this->contours = $contours;
+       $this->contours = [];
+       foreach($contours as $c)
+       {
+           if(is_array($c) && !empty($c) && count($c) == 2)
+           {
+               array_push($this->contours, new Coord($c[1], $c[2]));
+           }
+           else
+           {
+               $c = $contours[0];
+               foreach($c as $e)
+               {
+                   if(is_array($e) && !empty($e) && count($e) == 2)
+                   {
+                       array_push($this->contours, new Coord($e[1], $e[0]));
+                   }
+               }
+
+               break;
+           }
+       }
     }
 
     /**
      * Summary of get Id
      * @return integer
      */
-    public function getId() : int{
-        return $this->id;
+    public function getId() {
+        return $this->_id;
     }
 
     /**
      * Summary of get Nom
      * @return integer
      */
-    public function getNom() : string {
-        return $this->id;
+    public function getNom() {
+        return $this->nom;
     }
 
     /**
      * Summary of get Id Region
      * @return integer
      */
-    public function getIdRegion() : int{
-        return $this->id_region;
+    public function getIdRegion() {
+        return $this->_id_region;
     }
 
     /**
      * Summary of get Code
      * @return integer
      */
-    public function getCode() : int{
+    public function getCode() {
         return $this->code;
     }
 

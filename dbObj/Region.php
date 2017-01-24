@@ -8,41 +8,41 @@ declare(strict_types=1);
 
 class Region
 {
-    private $id;
+    private $_id;
     private $nom;
-   
-    
-    
-    public function __construct($args == null)
+
+
+
+    public function __construct($args = null)
     {
-        
-       if(is_array($args) && !empty($args))
-		{	
+
+       if($args != null)
+		{
 			foreach($args as $key => $value)
 			{
-				if(isset($this->$key))	$this->$key = $value;
+				if(isset($this->$key) || property_exists($this, $key))	$this->$key = $value;
             }
-    
+
         }
     }
-    
-    public function setId($id) 
+
+    public function setId($id)
     {
-        $this->id = $id;
+        $this->_id = $id;
     }
-    
-    public function setNom($nom) 
+
+    public function setNom($nom)
     {
         $this->nom = $nom;
     }
-    
-    public function getId() : double
+
+    public function getId()
     {
-        return $this->id;
-        
+        return $this->_id;
+
     }
-    
-    public function getNom() : string
+
+    public function getNom()
     {
         return $this->nom;
     }

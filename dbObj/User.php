@@ -87,7 +87,7 @@ class User
      * @param mixed $log
      * @return mixed
      */
-    public function getLogin() : string
+    public function getLogin()
     {
         return $this->login;
     }
@@ -97,7 +97,7 @@ class User
      * @param mixed $mdp
      * @return mixed
      */
-    public function getMdp() : string
+    public function getMdp()
     {
         return $this->mdp;
     }
@@ -107,7 +107,7 @@ class User
      * @param mixed $mail
      * @return mixed
      */
-    public function getMail() : string
+    public function getMail() 
     {
         return $this->mail;
     }
@@ -117,7 +117,7 @@ class User
      * @param mixed $profil
      * @return mixed
      */
-    public function getProfil() : string
+    public function getProfil()
     {
         return $this->profil;
     }

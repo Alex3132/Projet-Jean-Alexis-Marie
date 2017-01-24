@@ -13,32 +13,35 @@ declare(strict_types=1);
  */
 class Ville
 {
-    private $id;
-    private $id_dept;
+    private $_id;
+    private $_id_dept;
     private $nom;
     private $cp;
     private $pop;
-    private $coord;
-   
+    private $lat;
+    private $lon;
 
     /**
      * Default constructor
      * @param mixed $args
      *
-     * 
+     *
      */
-    public function __contruct($args = null)
+    public function __construct($args)
     {
         $this->coord = new Coord();
 		// Si notre paramètre est un tableau non vide.
-		if(is_array($args) && !empty($args))
+		if(null != $args)
 		{
-			// Alors pour chaque clé, on récupère sa valeur.
-			foreach($args as $key => $value)
-			{
-				// Si la propriété de la classe existe, alors on met à jour sa valeur.
-				if(isset($this->$key))	$this->$key = $value;
-			}
+            // Alors pour chaque clé, on récupère sa valeur.
+            foreach($args as $key => $value)
+            {
+                // Si la propriété de la classe existe, alors on met à jour sa valeur.
+                if(isset($this->$key) || property_exists($this, $key))
+                {
+                    $this->$key = $value;
+                }
+            }
         }
     }
 /**
@@ -47,7 +50,7 @@ class Ville
      */
     public function setId($id)
     {
-       $this->id = $id;
+       $this->_id = $id;
     }
     /**
      * Set id_dept
@@ -55,7 +58,7 @@ class Ville
      */
     public function setId_dept($id_dept)
     {
-       $this->id_dept = $id_dept;
+       $this->_id_dept = $id_dept;
     }
     /**
      * Set Nom
@@ -83,7 +86,7 @@ class Ville
     {
         $this->pop = $pop;
     }
-    
+
      /**
      * Set lat
      * @param mixed $lat
@@ -92,7 +95,7 @@ class Ville
     {
         $this->coord->lat = $lat;
     }
-    
+
      /**
      * Set lon
      * @param mixed $lon
@@ -101,15 +104,15 @@ class Ville
     {
         $this->coord->lon = $lon;
     }
-  
+
     /**
      * Get id
      * @param mixed $id
      * @return mixed
      */
-    public function getId() : double
+    public function getId() 
     {
-        return $this->id;
+        return $this->_id;
     }
 
     /**
@@ -117,9 +120,9 @@ class Ville
      * @param mixed $id_dept
      * @return mixed
      */
-    public function getId_Dept() : double
+    public function getId_Dept() 
     {
-        return $this->id_dept;
+        return $this->_id_dept;
     }
 
 
@@ -162,7 +165,7 @@ class Ville
     {
         return   $this->coord->lat;
     }
-    
+
     /**
      * Get lon
      * @param mixed $lon

@@ -43,7 +43,7 @@ class Coord
      * get lat
      * @return integer
      */
-    public function getLat() : int {
+    public function getLat() {
         return $this->lat;
     }
 
@@ -51,7 +51,7 @@ class Coord
      * get lon
      * @return integer
      */
-    public function getLon() : int{
+    public function getLon() {
         return $this->lon;
     }
 }
