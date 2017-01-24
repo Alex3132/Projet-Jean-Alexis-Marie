@@ -9,29 +9,12 @@
 
 <body>
 
-    <header>
+    <?php include('header.php');?>
 
 
-        <div>
+        <?php include('menu.php'); ?>
 
-
-            <img>
-
-
-            <h1></h1>
-
-            <img>
-
-        </div>
-
-
-
-    </header>
-
-
-    <nav></nav>
-
-
+            <?php include('footer.php'); ?>
 
 </body>
 
