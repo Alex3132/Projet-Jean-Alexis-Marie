@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @version 1.0
  * @author mamar
  */
-class Villes
+class Ville
 {
     private $id;
     private $id_dept;

@@ -1,11 +1,14 @@
 <?php
 declare(strict_types=1);
-
+require_once()
 // getUser(login) : User;
 // existUser(login) : bool
 // addUser(User user) : User;
+//
+// findVilleById(id) : Ville
+// findVille(nom, dep, region) : Ville
+// findDep(nom) :Departement
 // 
-// find
 
 /**
  * DbUtils short summary.
@@ -24,6 +27,18 @@ class DbUtils{
     private $manager = null;
     private $command = null;
 
+
+    private $jsFunc_GetNexSequence = 'function getNextSequence(%s) {
+                                           var ret = db.counters.findAndModify(
+                                                  {
+                                                    query: { _id: %s },
+                                                    update: { $inc: { seq: 1 } },
+                                                    new: true
+                                                  }
+                                           );;
+
+                                           return ret.seq;
+                                    }"';
 
     // Connect to test database
 
@@ -49,6 +64,8 @@ class DbUtils{
     public function UnConnect(){
         unset($this->manager);
     }
+
+    public function
 
     /**
      * Get current server

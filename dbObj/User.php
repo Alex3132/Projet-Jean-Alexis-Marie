@@ -29,13 +29,13 @@ class User
      */
     public function __contruct($args = null)
     {
-		// Si notre paramètre est un tableau non vide.
+		// Si notre paramÃ¨tre est un tableau non vide.
 		if(is_array($args) && !empty($args))
 		{
-			// Alors pour chaque cl�, on récupère sa valeur.
+			// Alors pour chaque clé, on rÃ©cupÃ¨re sa valeur.
 			foreach($args as $key => $value)
 			{
-				// Si la propri�t� de la classe existe, alors on met � jour sa valeur.
+				// Si la propriété de la classe existe, alors on met à  jour sa valeur.
 				if(isset($this->$key))	$this->$key = $value;
 			}
         }
