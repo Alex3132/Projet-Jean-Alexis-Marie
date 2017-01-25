@@ -2,19 +2,16 @@
     <header>
 
 
-        <div>
+        <div id="image">
 
-
-            <img>
-
-
-            <h1></h1>
 
             <img>
 
         </div>
 
-
+        <div id="titre">
+            <h1>SITE INTERNET</h1>
+        </div>
 
     </header>
 </div>

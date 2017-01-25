@@ -19,6 +19,22 @@ body {}
 }
 
 
+/*HEADER*/
+
+#header {
+    border: 1px solid;
+}
+
+#image {
+    border: 1px solid;
+    float: right;
+}
+
+#titre {
+    border: 1px solid;
+}
+
+
 /*MENU*/
 
 ul {
@@ -47,4 +63,16 @@ li a:hover:not(.active) {
 
 .selected {
     background-color: red;
+}
+
+
+/*FOOTER*/
+
+footer {
+    display: block;
+    background: url("img\footer.png");
+}
+
+footer p {
+    text-align: center;
 }
