@@ -71,7 +71,7 @@ if(!empty($_GET['ville']))
         foreach($villerep[$cle] as $key => $value){
             if($key == '_id_dept'){
                 $dept= $connect->FindDepById($value);
-            echo "<div class=\"region\">Région : ".$dept->getNom()."</div>" ;   
+            echo "<div class=\"region\">Département : ".$dept->getNom()."</div>" ;   
             }
             else {
                 echo "<div class=\"$key\">$key : $value </div>";
@@ -86,26 +86,33 @@ if(!empty($_GET['ville']))
             echo "<form action=\"#\" method=\"post\">";
              foreach($villerep as $cle => $valeur){
                  foreach($villerep[$cle] as $key => $value){
-                     if($key == "nom"){
+                     if($key == "nom" && empty($_POST['dept'])){
                          echo "<input type=\"radio\" name=\"choixville\" value=\"$value\">$value.</div> ";
                          
                      }
                   else if($key == "_id_dept"){
                          $dept = $connect->FindDepById($value);
-                         echo "<div>Région : ".$dept->getNom()."";
-                     }
+                     
+                      if(!empty($_POST['dept'])){
+                          
+                        $depart = $_POST['dept'];
+                      if( preg_match("/$depart/i", $dept->getNom())){
+                      
+                         echo "<div>Département : ".$dept->getNom()." / ville : ".$villerep[$cle]->nom;
+                      }
+                          
+                     }else{
+                         
+                          echo "<div>Département : ".$dept->getNom()." / ville :"; 
+                      }
                  }
-             }
+             }}
              
              
              
       echo "<input type=\"submit\" value=\"choisir\">";
              echo "</form>";
-             
-             if(isset($_POST['choixville'])){
-                 $choix = $_POST['choixville'];
-                 
-             echo "".$_POST['choixville']."";
+           
          }       
             
                    
@@ -115,8 +122,22 @@ if(!empty($_GET['ville']))
             
             }
     
-            
-            
+            if(isset($_POST['choixville'])){
+                
+                $choixville=$_POST['choixville'];
+                 $villerep2 = $connect->FindVilleByNom($choixville);
+                foreach($villerep2 as $cle2 => $valeur2){
+        foreach($villerep2[$cle2] as $key3 => $value3){
+            if($key3 == '_id_dept'){
+                $dept= $connect->FindDepById($value3);
+            echo "<div class=\"region\">Département : ".$dept->getNom()."</div>" ;   
+            }
+            else {
+                echo "<div class=\"$key3\">$key3 : $value3 </div>";
+            }
+        }
+                }
+            }
     
         
     
