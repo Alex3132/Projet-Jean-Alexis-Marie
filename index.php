@@ -16,6 +16,7 @@ if(!empty($_GET['page']))
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+        <script src="js/main.js"></script>
         <title><?php $page ?></title>
 
     </head>

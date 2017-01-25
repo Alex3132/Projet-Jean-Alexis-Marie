@@ -12,7 +12,7 @@ declare(strict_types=1);
  */
 class User
 {
-    private $id;
+    private $_id;
     private $login;
     private $mdp;
     private $mail;
@@ -36,9 +36,17 @@ class User
 			foreach($args as $key => $value)
 			{
 				// Si la propriété de la classe existe, alors on met à  jour sa valeur.
-				if(isset($this->$key))	$this->$key = $value;
+				if(isset($this->$key) || property_exists($this, $key))	$this->$key = $value;
 			}
         }
+    }
+
+    /**
+     * Set id
+     * @param mixed $id
+     */
+    public function setID($id) {
+        $this->_id = $id;
     }
 
     /**
@@ -80,6 +88,16 @@ class User
         }
 
         $this->profil = $profil;
+    }
+
+    /**
+     * Get id
+     * @param mixed $log
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->_id;
     }
 
     /**

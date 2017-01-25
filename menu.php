@@ -6,12 +6,13 @@ if(!empty($_GET['page']))
 {
 	//Remplace la valeur par defaut par celle de l'URL
 	$page = $_GET['page'];
-} else
+} 
+else
 {
     $page = 'accueil';
 }
 
-
+$connecte = isset($_SESSION[PSEUDO]);
 
 ?>
 
@@ -19,12 +20,29 @@ if(!empty($_GET['page']))
     <nav>
         <ul>
 
-<?php
-            foreach($pagesOK as $key => $pg) 
+            <?php
+            foreach($pagesOK as $key => $pg)
             {
-                echo ($page == $key) ? "<li><a href='index.php?page=$key' class='selected'>$pg</a>" : "<a href='index.php?page=$key'>$pg</a></li>";
+                if(!$connecte && ($key == EDIT))
+                {
+                    continue;
+                }
+                else if ($connecte && $key == LOGIN)
+                {
+                    continue;
+                }
+
+                echo '<li>';
+                echo ($page == $key) ? "<a href='index.php?page=$key' class='selected'>$pg</a>" : "<a href='index.php?page=$key'>$pg</a>";
+                echo "</li>\n";
             }
-?>
+
+            if($connecte) 
+            {
+                echo "<a href='".DECON.".php'>".$pagesdeco[DECON]."</a>";
+            }
+
+            ?>
             
         </ul>
 

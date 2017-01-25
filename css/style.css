@@ -1,6 +1,9 @@
 ﻿body {
 }
 
+li {
+    padding-right:0.2em;
+}
 
 #carteFrance {
     width: 50%;
@@ -15,3 +18,13 @@
 .hidden {
     visibility:hidden;
 }
+
+.inputerror {
+    background-color: lightpink;
+}
+
+.selected {
+    color : red;
+    font-size:1.5em;
+}
+
