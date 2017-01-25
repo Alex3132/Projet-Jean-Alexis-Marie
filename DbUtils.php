@@ -77,19 +77,21 @@ class DbUtils{
 
     /**
      * Verify if user exists
-     * @param mixed $pseudo 
-     * @param mixed $pwd 
+     * @param mixed $pseudo
+     * @param mixed $pwd
      */
     public function getUser($pseudo, $pwd) : User {
 
         if($pseudo != "" && $pwd != "") {
 
-            $filter = ['login' => $pseudo, 'pwd' => $pwd];
+            $filter = ['login' => $pseudo, 'mdp' => $pwd];
             $users = $this->ExecuteQueryToArray(DbUtils::COLUSERS, $filter, null);
             if(!empty($users) && count($users) == 1) {
                 $user = new User($users[0]);
                 return $user;
             }
+
+            throw new Exception("unknow user");
         }
 
         throw new Exception("unknow user");
@@ -153,23 +155,23 @@ class DbUtils{
         $readpref = new MongoDB\Driver\ReadPreference(MongoDB\Driver\ReadPreference::RP_PRIMARY);
         return $this->manager->selectServer($readpref);
     }
- 
+
     public function FindVilleByNom($nom){
-    
+
     if($nom){
-        
+
         $filter = ['nom' =>['$regex' => new MONGODB\BSON\Regex($nom, 'i')]];
            $options = ['projection' => ['nom' => 1, 'lon' => 1, 'lat' => 1, '_id' => 0, '_id_dept' => 1, 'pop' => 1]];
 
     }else{
-        
+
         throw new exception("no name of city written");
     }
-    
+
     $array = $this->ExecuteQueryToArray('villes', $filter, $options);
     return $array;
        }
-    
+
     /**
      * Find an object by its _id
      * @param mixed $colname
@@ -309,9 +311,9 @@ class DbUtils{
             die(sprintf('<p class="error">Erreur PDO <em>%s</em></p>'."\n", $exception->getMessage()));
         }
     }
-    
-   
-  
+
+
+
 }
 
 

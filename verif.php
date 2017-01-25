@@ -15,9 +15,6 @@ if(isset($_POST[PSEUDO]) && isset($_POST[PWD])) {
             $_SESSION[PSEUDO] = $user->getLogin();
             $_SESSION[PWD] = $user->getMdp();
             $_SESSION[PROFIL] = $user->getProfil();
-            //require_once("accueil.php");
-            //exit();
-            //echo '<script>setTimeout(window.location="index.php?page='.$pagesOK[INDEX].'", 500);</script>';
             header('Location:index.php');
         }
     }
