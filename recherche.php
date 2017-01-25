@@ -64,18 +64,24 @@ if(!empty($_GET['ville']))
 
     <?php
     //si un nom de ville est tapé
-    if(!empty($_POST['nom'])){
+    if(!empty($_POST['nom']))
+    {
         $nomville = $_POST['nom'];
             $villerep = $connect->FindVilleByNom($nomville);//nous ressort le document qui correspond
      
     
-        if(count($villerep) < 2){//parcours du document si il n'y a qu'une seule réponse
-    foreach($villerep as $cle => $valeur){
-        foreach($villerep[$cle] as $key => $value){
-            if($key == '_id'){
+        if(count($villerep) < 2)
+        {//parcours du document si il n'y a qu'une seule réponse
+    foreach($villerep as $cle => $valeur)
+    {
+        foreach($villerep[$cle] as $key => $value)
+        {
+            if($key == '_id')
+            {
                 
             }
-           elseif($key == '_id_dept'){
+           elseif($key == '_id_dept')
+           {
                 $dept= $connect->FindDepById($value);
                     
                     echo "<div class=\"departement\">Département : ".$dept->getNom()."</div>" ; 
@@ -86,7 +92,8 @@ if(!empty($_GET['ville']))
                 
                 
             }
-            else {
+            else 
+            {
                 
                 echo "<div class=\"$key\">$key : $value </div>";
                 
@@ -95,30 +102,37 @@ if(!empty($_GET['ville']))
     }
         }
         //     foreach($dept as $key1 => $value1){
-         else {//si il y a plusieurs réponses => boutons radio de choix
+         else 
+         {//si il y a plusieurs réponses => boutons radio de choix
              
             echo "<form action=\"#\" method=\"post\">";
              
-             foreach($villerep as $cle => $valeur){
+             foreach($villerep as $cle => $valeur)
+             {
                  
-                 foreach($villerep[$cle] as $key => $value){
+                 foreach($villerep[$cle] as $key => $value)
+                 {
                      
-                     if($key == "nom" && empty($_POST['dept'])){
+                     if($key == "nom" && empty($_POST['dept']))
+                     {
                         
                          echo "<input type=\"radio\" name=\"choixville\" value=\"".$value."\">$value.</div> ";
                          
                      }
-                  else if($key == "_id_dept"){
+                  else if($key == "_id_dept")
+                  {
                          
                       $dept = $connect->FindDepById($value);
                      
                       
-                      if(!empty($_POST['dept'])){//si un département est tapé
+                      if(!empty($_POST['dept']))
+                      {//si un département est tapé
                           
                           $depart = $_POST['dept'];
                       
                           
-                          if( preg_match("/$depart/i", $dept->getNom())){//recherche en regex insensitive
+                          if(preg_match("/$depart/i", $dept->getNom()))
+                          {//recherche en regex insensitive
                       
                           //affichage des boutons radio name = choixville
                          
@@ -137,7 +151,7 @@ if(!empty($_GET['ville']))
                  }
              }
     
-            }
+        }
              
              
              
@@ -159,7 +173,8 @@ if(!empty($_GET['ville']))
     
     //choix d'un bouton radio et affichage d'un résultat
     
-            if(isset($_POST['choixville'])){    
+            if(isset($_POST['choixville']))
+            {    
                 
                 $choixville=$_POST['choixville'];
                     $villerep2 = $connect->FindVilleByNomChoosen($choixville);
@@ -174,7 +189,7 @@ if(!empty($_GET['ville']))
                             echo "<div class=\"nom\">Nom : ".$villerep2[0]->nom."</div>";
                 
                 
-                if($villerep2[0]->pop)
+                if(property_exists($villerep2[0], 'pop') && $villerep2[0]->pop)
                     echo "<div class=\"pop\">Pop : ".$villerep2[0]->pop."</div>";
               
                 if($villerep2[0]->lat)

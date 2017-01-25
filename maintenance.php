@@ -131,7 +131,7 @@ require("DbUtils.php");
                         echo "<div class=\"region\">Region : ".$findregion->getNom()."</div>";
                     echo "<div class=\"nom\"><input type=\"checkbox\" name=\"modif[]\" value=\"nom:".$villerep2[0]->nom."\"> Nom : ".$villerep2[0]->nom."</div>";
                 
-         if($villerep2[0]->pop)
+         if(property_exists($villerep2[0], 'pop') && $villerep2[0]->pop)
                 echo "<div class=\"pop\"><input type=\"checkbox\" name=\"modif[]\" value=\"pop:".$villerep2[0]->pop."\">Pop : ".$villerep2[0]->pop."</div>";
                     
          if($villerep2[0]->lat)
