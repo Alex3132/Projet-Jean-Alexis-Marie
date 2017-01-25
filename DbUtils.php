@@ -209,7 +209,7 @@ class DbUtils{
     if($nom){
 
         $filter = ['nom' =>['$regex' => new MONGODB\BSON\Regex($nom, 'i')]];
-           $options = ['projection' => ['nom' => 1, 'lon' => 1, 'lat' => 1, '_id' => 1, '_id_dept' => 1, 'pop' => 1]];
+           $options = ['projection' => ['nom' => 1, 'lon' => 1, 'lat' => 1, '_id' => 1, '_id_dept' => 1, 'pop' => 1, 'cp' =>1]];
 
     }else{
 echo "<div style=\"color: red;\">Pas de ville écrite<div>";
