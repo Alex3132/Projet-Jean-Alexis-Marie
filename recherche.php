@@ -66,8 +66,7 @@ if(!empty($_GET['ville']))
     //si un nom de ville est tapé
     if(!empty($_POST['nom'])){
         $nomville = $_POST['nom'];
-     
-    $villerep = $connect->FindVilleByNom($nomville);//nous ressort le document qui correspond
+            $villerep = $connect->FindVilleByNom($nomville);//nous ressort le document qui correspond
      
     
         if(count($villerep) < 2){//parcours du document si il n'y a qu'une seule réponse
@@ -78,14 +77,17 @@ if(!empty($_GET['ville']))
             }
            elseif($key == '_id_dept'){
                 $dept= $connect->FindDepById($value);
-            echo "<div class=\"departement\">Département : ".$dept->getNom()."</div>" ; 
-            $region = $connect->findRegionById($dept->getIdregion());
-                
-                 echo "<div class=\"region\">Région : ".$region->getNom()."</div>";
+                    
+                    echo "<div class=\"departement\">Département : ".$dept->getNom()."</div>" ; 
+                        
+                $region = $connect->findRegionById($dept->getIdregion());
+                            
+                    echo "<div class=\"region\">Région : ".$region->getNom()."</div>";
                 
                 
             }
             else {
+                
                 echo "<div class=\"$key\">$key : $value </div>";
                 
             }
@@ -96,39 +98,52 @@ if(!empty($_GET['ville']))
          else {//si il y a plusieurs réponses => boutons radio de choix
              
             echo "<form action=\"#\" method=\"post\">";
+             
              foreach($villerep as $cle => $valeur){
+                 
                  foreach($villerep[$cle] as $key => $value){
+                     
                      if($key == "nom" && empty($_POST['dept'])){
                         
                          echo "<input type=\"radio\" name=\"choixville\" value=\"".$value."\">$value.</div> ";
                          
                      }
                   else if($key == "_id_dept"){
-                         $dept = $connect->FindDepById($value);
+                         
+                      $dept = $connect->FindDepById($value);
                      
+                      
                       if(!empty($_POST['dept'])){//si un département est tapé
                           
-                        $depart = $_POST['dept'];
-                      if( preg_match("/$depart/i", $dept->getNom())){//recherche en regex insensitive
+                          $depart = $_POST['dept'];
+                      
+                          
+                          if( preg_match("/$depart/i", $dept->getNom())){//recherche en regex insensitive
                       
                           //affichage des boutons radio name = choixville
-                         echo "<div>Département : ".$dept->getNom().".<input type=\"radio\" name=\"choixville\" value=\"".$villerep[$cle]->nom."\">".$villerep[$cle]->nom."";
+                         
+                              echo "<div>Département : ".$dept->getNom().".<input type=\"radio\" name=\"choixville\" value=\"".$villerep[$cle]->nom."\">".$villerep[$cle]->nom."";
                       }
                           
-                     }else{
+                     }else
+                      {
                          
                           $region = $connect->findRegionById($dept->getIdregion());
                 
-                 echo "<div class=\"region\">Région : ".$region->getNom()."</div>\n";
-                          echo "<div>Département : ".$dept->getNom()." <div class=\"ville\">ville :"; 
+                 
+                          echo "<div class=\"region\">Région : ".$region->getNom()."</div>\n";
+                            echo "<div>Département : ".$dept->getNom()." <div class=\"ville\">ville :"; 
                       }
                  }
-             }}
+             }
+    
+            }
              
              
              
-      echo "<div><input type=\"submit\" value=\"choisir\"></div>\n";
-             echo "</form>";
+      
+             echo "<div><input type=\"submit\" value=\"choisir\"></div>\n";
+                echo "</form>";
            
          }       
             
@@ -137,8 +152,9 @@ if(!empty($_GET['ville']))
                    
                 
             
-            }elseif(isset($_POST['nom'])&& empty($_POST['nom'])){
-    echo "<div class=\"error\">Veuillez rentrer le nom d'une ville.</div>";    
+            }elseif(isset($_POST['nom'])&& empty($_POST['nom']))
+    {
+                    echo "<div class=\"error\">Veuillez rentrer le nom d'une ville.</div>";    
     }
     
     //choix d'un bouton radio et affichage d'un résultat
@@ -146,22 +162,29 @@ if(!empty($_GET['ville']))
             if(isset($_POST['choixville'])){    
                 
                 $choixville=$_POST['choixville'];
-                 $villerep2 = $connect->FindVilleByNomChoosen($choixville);
-               
-                $dept= $villerep2[0]->_id_dept;
-                $findept= $connect->findDepById($dept);
-                echo "<div>Departement : ".$findept->getNom()."</div>";
-                $findregion = $connect->findRegionById($findept->getIdregion());
-                echo "<div class=\"region\">Region : ".$findregion->getNom()."</div>";
-                echo "<div class=\"nom\">Nom : ".$villerep2[0]->nom."</div>";
+                    $villerep2 = $connect->FindVilleByNomChoosen($choixville);
+                        $dept= $villerep2[0]->_id_dept;
+                            $findept= $connect->findDepById($dept);
+                                
+                                echo "<div>Departement : ".$findept->getNom()."</div>";
+                                    
+                                    $findregion = $connect->findRegionById($findept->getIdregion());
+                                
+                                echo "<div class=\"region\">Region : ".$findregion->getNom()."</div>";
+                            echo "<div class=\"nom\">Nom : ".$villerep2[0]->nom."</div>";
+                
+                
                 if($villerep2[0]->pop)
-                echo "<div class=\"pop\">Pop : ".$villerep2[0]->pop."</div>";
-              if($villerep2[0]->lat)
-                echo "<div class=\"lat\">Lat : ".$villerep2[0]->lat."</div>";
+                    echo "<div class=\"pop\">Pop : ".$villerep2[0]->pop."</div>";
+              
+                if($villerep2[0]->lat)
+                    echo "<div class=\"lat\">Lat : ".$villerep2[0]->lat."</div>";
+                
                 if($villerep2[0]->lon)
-                echo "<div class=\"lon\">Lon : ".$villerep2[0]->lon."</div>";
+                    echo "<div class=\"lon\">Lon : ".$villerep2[0]->lon."</div>";
+                
                 if($villerep2[0]->cp)
-                echo "<div class=\"cp\">Code Postal : ".$villerep2[0]->cp."</div>";
+                    echo "<div class=\"cp\">Code Postal : ".$villerep2[0]->cp."</div>";
                 
                 
             }
