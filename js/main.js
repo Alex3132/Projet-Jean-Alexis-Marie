@@ -21,6 +21,28 @@ function verifFormLogin(form) {
     return ret;
 }
 
+function verifFormInscription(form) {
+
+    var inputpseudo = form.pseudo;
+    var inputppwd = form.pwd;
+    var ret = true;
+    if (!inputpseudo.value) {
+        inputpseudo.classList.add("inputerror");
+        ret = false;
+    } else {
+        inputpseudo.classList.remove("inputerror");
+    }
+
+    if (!inputppwd.value) {
+        inputppwd.classList.add("inputerror");
+        ret = false;
+    } else {
+        inputppwd.classList.remove("inputerror");
+    }
+
+    return ret;
+}
+
 
 //var pseudoOk = verifPseudo(f.pseudo);
 //var mailOk = verifMail(f.email);

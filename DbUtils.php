@@ -36,6 +36,9 @@ class DbUtils{
     CONST COLDEPS = "departements";
     CONST COLREGIONS = "regions";
     CONST COLUSERS = "users";
+    CONST COLCOUNTERS = "counters";
+
+    const USERID = "userid";
 
 
     private $jsFunc_GetNexSequence = 'function getNextSequence(%s) {
@@ -95,6 +98,51 @@ class DbUtils{
         }
 
         throw new Exception("unknow user");
+    }
+
+    /**
+     * Test if user exists with its login
+     * @param mixed $login
+     * @return boolean
+     */
+    public function existUser($login) : bool {
+
+        $filter = ['login' => $login];
+        $users = $this->ExecuteQueryToArray(DbUtils::COLUSERS, $filter, null);
+        if(!empty($users) && count($users) == 1) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Insert a new user without any profil
+     * @param mixed $login 
+     * @param mixed $mdp 
+     * @param mixed $mail 
+     */
+    public function insertUser($login, $mdp, $mail = null) {
+        if(!$this->existUser($login)){
+            $id = $this->getNextId(DbUtils::USERID);
+            $bulk = new MongoDB\Driver\BulkWrite();
+            $doc = ['_id' => $id, 'login' => $login, 'mail' => $mail,'mdp' => $$mdp];
+            $id2 = $bulk->insert($doc);
+        }
+    }
+
+    /**
+     * Get the next id
+     * @param mixed $idid
+     * @return array|double|integer
+     */
+    private function getNextId($idid)
+    {
+        $options = ['projection' => [$idid => 1]];
+        $ids = $this->ExecuteQueryToArray(DbUtils::COLCOUNTERS, [], $options);
+        if(!empty($ids) && count(ids) == 1) {
+            return $ids + 1;
+        }
     }
 
     /**
