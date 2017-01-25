@@ -62,18 +62,64 @@ if(!empty($_GET['ville']))
     
     if(isset($_POST['nom'])){
         $nomville = $_POST['nom'];
-        echo " Ville : $nomville";
+     
     $villerep = $connect->FindVilleByNom($nomville);
-       
-        
+     
+    
+        if(count($villerep) < 2){
+    foreach($villerep as $cle => $valeur){
+        foreach($villerep[$cle] as $key => $value){
+            if($key == '_id_dept'){
+                $dept= $connect->FindDepById($value);
+            echo "<div class=\"region\">Région : ".$dept->getNom()."</div>" ;   
+            }
+            else {
+                echo "<div class=\"$key\">$key : $value </div>";
+                
+            }
+        }
+    }
+        }
+        //     foreach($dept as $key1 => $value1){
+         else {
+             
+            echo "<form action=\"#\" method=\"post\">";
+             foreach($villerep as $cle => $valeur){
+                 foreach($villerep[$cle] as $key => $value){
+                     if($key == "nom"){
+                         echo "<input type=\"radio\" name=\"choixville\" value=\"$value\">$value.</div> ";
+                         
+                     }
+                  else if($key == "_id_dept"){
+                         $dept = $connect->FindDepById($value);
+                         echo "<div>Région : ".$dept->getNom()."";
+                     }
+                 }
+             }
+             
+             
+             
+      echo "<input type=\"submit\" value=\"choisir\">";
+             echo "</form>";
+             
+             if(isset($_POST['choixville'])){
+                 $choix = $_POST['choixville'];
+                 
+             echo "".$_POST['choixville']."";
+         }       
+            
+                   
+               
+                   
+                
+            
+            }
+    
+            
+            
+    
         
     
-        foreach($villerep[0] as $key => $value){
-            echo "<div class=\"$key\">$key  :  $value.<div>\n";
-            
-        }
-        
-    }
     ?>
     <div class="local">
     </div>

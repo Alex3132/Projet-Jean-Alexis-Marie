@@ -153,7 +153,23 @@ class DbUtils{
         $readpref = new MongoDB\Driver\ReadPreference(MongoDB\Driver\ReadPreference::RP_PRIMARY);
         return $this->manager->selectServer($readpref);
     }
+ 
+    public function FindVilleByNom($nom){
+    
+    if($nom){
+        
+        $filter = ['nom' =>['$regex' => new MONGODB\BSON\Regex($nom, 'i')]];
+           $options = ['projection' => ['nom' => 1, 'lon' => 1, 'lat' => 1, '_id' => 0, '_id_dept' => 1, 'pop' => 1]];
 
+    }else{
+        
+        throw new exception("no name of city written");
+    }
+    
+    $array = $this->ExecuteQueryToArray('villes', $filter, $options);
+    return $array;
+       }
+    
     /**
      * Find an object by its _id
      * @param mixed $colname
@@ -161,7 +177,7 @@ class DbUtils{
      * @throws Exception
      * @return mixed
      */
-    private function findObjectById($colname, $id) {
+     function findObjectById($colname, $id) {
 
         $idint = intval($id);
         if($idint != 0) {
@@ -295,23 +311,8 @@ class DbUtils{
     }
     
    
-    public function FindVilleByNom($nom){
-    
-    if($nom){
-        
-        $filter = ['nom' =>['$regex' => new MONGODB\BSON\Regex($nom, 'i')]];
-           $options = ['projection' => ['nom' => 1, 'lon' => 1, 'lat' => 1, '_id' => 0, '_id_dept' => 1]];
-
-    }else{
-        
-        throw new exception("no name of city written");
-    }
-    
-    $array = $this->ExecuteQueryToArray('villes', $filter, $options);
-    return $array;
-       }
-    }
-    
+  
+}
 
 
 
