@@ -2,8 +2,8 @@
 
 // declaration des pages
 
-const INDEX = 'accueil ';
-const EDIT = 'maintenance ';
+const INDEX = 'accueil';
+const EDIT = 'maintenance';
 const LOGIN = 'login';
 const SEARCH = 'recherche';
 const INSCR = 'inscription';

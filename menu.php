@@ -33,7 +33,7 @@ $connecte = isset($_SESSION[PSEUDO]);
                 }
 
                 echo '<li>';
-                echo ($page == $key) ? "<a href='index.php?page=$key' class='selected'>$pg</a>" : "<a href='index.php?page=$key'>$pg</a>";
+                echo ($page == $key) ? "<a href=\"index.php?page=$key\" class=\"selected\">$pg</a>" : "<a href=\"index.php?page=$key\">$pg</a>";
                 echo "</li>\n";
             }
 
