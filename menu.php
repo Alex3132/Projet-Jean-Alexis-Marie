@@ -39,7 +39,7 @@ $connecte = isset($_SESSION[ID]);
 
             if($connecte) 
             {
-                echo "<a href='".DECON.".php'>".$pagesdeco[DECON]."</a>";
+                echo "<li><a href='".DECON.".php'>".$pagesdeco[DECON]."</a></li>";
             }
 
             ?>
