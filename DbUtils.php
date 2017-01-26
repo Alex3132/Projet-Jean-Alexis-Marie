@@ -78,72 +78,6 @@ class DbUtils{
         unset($this->manager);
     }
 
-    /**
-     * Verify if user exists
-     * @param mixed $pseudo
-     * @param mixed $pwd
-     */
-    public function getUser($pseudo, $pwd) : User {
-
-        if($pseudo != "" && $pwd != "") {
-
-            $filter = ['login' => $pseudo, 'mdp' => $pwd];
-            $users = $this->ExecuteQueryToArray(DbUtils::COLUSERS, $filter, null);
-            if(!empty($users) && count($users) == 1) {
-                $user = new User($users[0]);
-                return $user;
-            }
-
-            throw new Exception("unknow user");
-        }
-
-        throw new Exception("unknow user");
-    }
-
-    /**
-     * Test if user exists with its login
-     * @param mixed $login
-     * @return boolean
-     */
-    public function existUser($login) : bool {
-
-        $filter = ['login' => $login];
-        $users = $this->ExecuteQueryToArray(DbUtils::COLUSERS, $filter, null);
-        if(!empty($users) && count($users) == 1) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * Insert a new user without any profil
-     * @param mixed $login 
-     * @param mixed $mdp 
-     * @param mixed $mail 
-     */
-    public function insertUser($login, $mdp, $mail = null) {
-        if(!$this->existUser($login)){
-            $id = $this->getNextId(DbUtils::USERID);
-            $bulk = new MongoDB\Driver\BulkWrite();
-            $doc = ['_id' => $id, 'login' => $login, 'mail' => $mail,'mdp' => $$mdp];
-            $id2 = $bulk->insert($doc);
-        }
-    }
-
-    /**
-     * Get the next id
-     * @param mixed $idid
-     * @return array|double|integer
-     */
-    private function getNextId($idid)
-    {
-        $options = ['projection' => [$idid => 1]];
-        $ids = $this->ExecuteQueryToArray(DbUtils::COLCOUNTERS, [], $options);
-        if(!empty($ids) && count(ids) == 1) {
-            return $ids + 1;
-        }
-    }
 
     /**
      * Find Ville vy its id
@@ -195,6 +129,16 @@ class DbUtils{
         throw new Exception("unknown region");
     }
 
+    public function getRegions() : array{
+        $regions = $this->ExecuteQueryToArray(DbUtils::COLREGIONS, [], null);
+        $array = [];
+        foreach ($regions as $region) {
+            array_push($array, new Region($region));
+        }
+
+        return $array;
+    }
+
     /**
      * Get current server
      * @return MongoDB\Driver\Server
@@ -217,10 +161,10 @@ echo "<div style=\"color: red;\">Pas de ville écrite<div>";
     }
         $array = $this->ExecuteQueryToArray('villes', $filter, $options);
     return $array;
-       
-        
+
+
     }
-    
+
     public function FindVilleByNomChoosen($nom){
         if($nom){
               $filter = ['nom' =>['$regex' => new MONGODB\BSON\Regex("^$nom$", 'i')]];

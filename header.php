@@ -18,7 +18,7 @@
         <div id="connecter">
 
             <?php
-            echo "<p>Profil de : .$pseudo</p>"
+            echo "<p>Profil de : .Coucou</p>"
             
             ?>
 
