@@ -1,4 +1,4 @@
-﻿
+
 function verifFormLogin(form) {
     
     var inputpseudo = form.pseudo;
@@ -53,9 +53,9 @@ function selectionregion() {
             var idregion = rates[i].value;
             //document.getElementById("nomregion").value = rates[i].value;
             document.getElementById("idregion").value = idregion;
-            var nomregion = form.region;
+            var nomregion = rates[i].nextSibling.innerHTML;
 
-            document.getElementById("nomregion").value = "titi";
+            document.getElementById("nomregion").value = nomregion;
         }
     }
 }

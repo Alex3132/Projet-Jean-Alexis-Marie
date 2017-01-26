@@ -248,7 +248,7 @@ if(!empty($_GET['ville']))
             if($connecte)
             {
                 
-                echo "<input type=\"submit\" formaction=\"maintenance.php\" value=\"modifier\">";
+                echo "<input type=\"submit\" formaction=\"index.php?page=maintenance\" value=\"modifier\">";
                 
             }
     
