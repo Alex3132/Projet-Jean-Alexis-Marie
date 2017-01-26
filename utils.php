@@ -23,3 +23,17 @@ const PSEUDO = 'pseudo';
 const PWD = 'pwd';
 const PROFIL = 'profil';
 const ID = '_id';
+
+const DEPBYREGION = "getDepsOfregion.php";
+
+
+function getBaseUrl()
+{
+    $pageURL = 'http';
+    //if ($_SERVER["HTTPS"] == "on") {
+    //    $pageURL .= "s";
+    //}
+    $pageURL .= "://";
+    $pageURL .= $_SERVER["HTTP_HOST"]."/";
+    return $pageURL;
+}

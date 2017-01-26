@@ -15,7 +15,6 @@
       }     
   }
 
-
   $regions = $connect->getRegions();
 
 ?>
@@ -27,7 +26,7 @@
             <?php
             foreach ($regions as $region)
             {
-                echo "<li><input type='radio' name='selectregion' onclick='selectionregion()'; value='".$region->getId()."'/><span>".$region->getNom()."</span></li>\n";
+                echo "<li><input type='radio' name='selectregion' onclick='selectionregion('".htmlspecialchars(getBaseUrl().DEPBYREGION)."');' value='".$region->getId()."'/><span>".$region->getNom()."</span></li>\n";
             }
 
             ?>

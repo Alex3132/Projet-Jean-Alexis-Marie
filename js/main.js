@@ -1,4 +1,4 @@
-
+﻿
 function verifFormLogin(form) {
     
     var inputpseudo = form.pseudo;
@@ -43,8 +43,9 @@ function verifFormLogin(form) {
 //    return ret;
 //}
 
+var xhr = null;
 
-function selectionregion() {
+function selectionregion(url) {
     var rates = document.getElementsByName('selectregion');
     var rate_value;
     var form = document.getElementById("changeregion");
@@ -58,6 +59,21 @@ function selectionregion() {
             document.getElementById("nomregion").value = nomregion;
         }
     }
+
+    //if (xhr && xhr.readyState != 0) {
+    //    xhr.abort(); // On annule la requête en cours !
+    //}
+
+    //xhr.open(POST, url);
+    //var formdata = new FormData();
+    //xhr.addEventListener('load', function () {
+    //    if (xhr.status >= 200 && xhr.status < 400) {
+    //        console.log(xhr.responseText);
+    //    }
+    //});
+
+    //formdata.append('idregion', idregion);
+    //xhr.send(formdata);
 }
 
 function verifchangeregion() {

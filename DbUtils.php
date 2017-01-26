@@ -206,6 +206,17 @@ class DbUtils{
     }
 
     /**
+     * Get departements by region
+     * @param mixed $dregion
+     */
+    public function getDepsByRegion($idregion) {
+        
+        $idint = intval($idregion);
+        $filter = ['_id_region' => $idint];
+        return $this->ExecuteQueryToArray(DbUtils::COLDEPS, $filter, null);
+    }
+
+    /**
      * Get current server
      * @return MongoDB\Driver\Server
      */
