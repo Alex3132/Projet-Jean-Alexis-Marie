@@ -26,7 +26,7 @@
             <?php
             foreach ($regions as $region)
             {
-                echo "<li><input type='radio' name='selectregion' onclick='selectionregion('".htmlspecialchars(getBaseUrl().DEPBYREGION)."');' value='".$region->getId()."'/><span>".$region->getNom()."</span></li>\n";
+                echo "<li><input type='radio' name='selectregion' onclick='selectionregion(\"".htmlspecialchars(getBaseUrl().DEPBYREGION)."\");' value='".$region->getId()."'/><span>".$region->getNom()."</span></li>\n";
             }
 
             ?>
@@ -35,6 +35,11 @@
         <input type="hidden" id="idregion" name="idregion" value="" />
         <input type="text" id="nomregion" name="nomregion" value="" />
         <input type="submit" value="Modifier" />
+
+    </form>
+
+    <form id="listdep">
+
 
     </form>
 

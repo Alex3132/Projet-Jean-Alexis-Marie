@@ -60,20 +60,21 @@ function selectionregion(url) {
         }
     }
 
-    //if (xhr && xhr.readyState != 0) {
-    //    xhr.abort(); // On annule la requête en cours !
-    //}
+    if (xhr && xhr.readyState != 0) {
+        xhr.abort(); // On annule la requête en cours !
+    }
 
-    //xhr.open(POST, url);
-    //var formdata = new FormData();
-    //xhr.addEventListener('load', function () {
-    //    if (xhr.status >= 200 && xhr.status < 400) {
-    //        console.log(xhr.responseText);
-    //    }
-    //});
+    xhr = new XMLHttpRequest()
+    xhr.open('POST', url);
+    var formdata = new FormData();
+    xhr.addEventListener('load', function () {
+        if (xhr.status >= 200 && xhr.status < 400) {
+            document.getElementById("listdep").innerHTML = xhr.responseText;
+        }
+    });
 
-    //formdata.append('idregion', idregion);
-    //xhr.send(formdata);
+    formdata.append('idregion', idregion);
+    xhr.send(formdata);
 }
 
 function verifchangeregion() {
