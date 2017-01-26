@@ -12,7 +12,7 @@ else
     $page = 'accueil';
 }
 
-$connecte = isset($_SESSION[PSEUDO]);
+$connecte = isset($_SESSION[ID]);
 
 ?>
 
