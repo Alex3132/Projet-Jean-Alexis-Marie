@@ -13,13 +13,15 @@ if(isset($_POST['nomregion']) && isset($_POST['idregion'])) {
         echo $exception->getMessage();
     }
 } else if(isset($_POST['modifregion']) && isset($_POST['selectdep'])) {
-     
 
+    $connect->modifyDepIdRegion($_POST['modifregion'], $_POST['selectdep']);
 }
 
 $regions = $connect->getRegions();
 
 ?>
+
+
 
 <div id="listregions">
 
@@ -39,33 +41,31 @@ $regions = $connect->getRegions();
         <input type="submit" value="Modifier" />
 
     </form>
+</div>  
 
+<div id="listdeps">
     <form id="changedep" action="#" method="post">
 
-        <div id="listdep">
-
-        </div>
+        <div id="listdep"></div>
 
         <div id="divmodifregion" class="hidden">
             <select name="modifregion" id="modifregion" onchange="changeRegion(<?php $region->getId() ?>);">
                 <?php
-                foreach ($regions as $region)
+            foreach ($regions as $region)
+            {
+                echo "<option value='".$region->getId();
+                if(isset($_POST['idregion']))
                 {
-                    echo "<option value='".$region->getId();
-                    if(isset($_POST['idregion']))
+                    if(intval($_POST['idregion']) == $region->getId())
                     {
-                        if(intval($_POST['idregion']) == $region->getId())
-                        {
-                            echo " selected";
-                        }
+                        echo " selected";
                     }
-
-                    echo "'>".$region->getNom()."</option>\n";
                 }
+                echo "'>".$region->getNom()."</option>\n";
+            }
                 ?>
             </select>
             <input type="submit" value="Modifier" id="btModifRegion" disabled />
         </div>
     </form>
-
-</div>  
+</div>
