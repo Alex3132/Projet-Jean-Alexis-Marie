@@ -29,6 +29,8 @@ body {
     width: 100%;
     background-color: aqua;
     height: 80px;
+    background-image: url("../img/footer.png");
+    color: white;
 }
 
 #image {
@@ -92,6 +94,35 @@ footer {
     text-align: center;
     background-color: aqua;
     border: 1px solid;
+}
+
+#nom, #dept, #region{
+    color: white;
+    background-color: #6b6b6b;
+    
+}
+
+footer{
+    background-image:url("../img/footer.png");
+    color: white;   
+}
+label{
+
+    
+}
+h2{
+    margin:0;
+}
+legend{
+    border-style:groove;
+    padding: 0;
+    background-image: url("../img/footer.png");
+    color: white;
+}
+fielset{
+    color:red;  
+    border:  solid 
+    margin: 200px;
 }
 
 @media (max-width: 1200px){

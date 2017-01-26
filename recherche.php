@@ -23,7 +23,7 @@ if(!empty($_GET['ville']))
 ?>
 
 <form action="#" method="post">
-
+    <fieldset><legend><h2>Rechercher une ville</h2></legend>
     <div id="recherche">
         <div class="nom">
             <label>Nom :</label>
@@ -39,7 +39,7 @@ if(!empty($_GET['ville']))
         </div>
        <input type="submit" value="Envoyer">
     </div>
-
+    </fieldset>
 </form>
 
 
@@ -48,6 +48,7 @@ if(!empty($_GET['ville']))
 
 <div id="resultat">
 <form  action="#" method="post">
+    <fieldset><legend>Résultat de la recherche</legend>
     <?php
     //en venant d'une ville choisie sur la page d'accueil.
    
@@ -148,7 +149,7 @@ if(!empty($_GET['ville']))
                      if($key == "nom" && empty($_POST['dept']))
                      {
                         
-                         echo "<input type=\"radio\" name=\"choixville\" value=\"".$value."\"><input type=\"text\" name=\"valeur[]\" value=\"$key=>".$value."\" hidden readonly>$value.</div>\n ";
+                         echo "<input type=\"radio\" name=\"choixville\" value=\"".$value."\"><input type=\"text\" name=\"valeur[]\" value=\"$key=>".$value."\" hidden readonly>$value.</div>\n<br><hr> ";
                          
                      }
                   else if($key == "_id_dept")
@@ -252,7 +253,8 @@ if(!empty($_GET['ville']))
                 
             }
     
-    ?>
+        ?>
+    </fieldset>
     </form>
     <div class="local">
     </div>

@@ -11,7 +11,7 @@
 
         <div id="titre">
 
-            <h1>SITE INTERNET</h1>
+            <h1>La carte de France</h1>
 
         </div>
 
