@@ -1,24 +1,28 @@
-<?php
 
-require("DbUtils.php");
+  <?php
 
-$regions = $connect->getRegions();
+  require("DbUtils.php");
 
-?>
+  $regions = $connect->getRegions();
+
+  ?>
 
 <div id="listregions">
 
-    <ul>
-        <?php
-        foreach ($regions as $region) 
-        {
-            echo "<li>".$region->getNom()."</li>\n";
-        }
+    <form>
+        <ul>
+            <?php
+            foreach ($regions as $region)
+            {
+                echo "<li><input type='radio' name='selectregion' onclick='selectionregion()'; value='".$region->getNom()."'/>".$region->getNom()."</li>\n";
+            }
 
-        ?>
+            ?>
+        </ul>
 
-    </ul>
+        <input type="text" id="nomregion" name="nomregion" value="" />
+        <input type="submit" value="Modifier" />
 
+    </form>
 
-</div>
-    
+</div>  
