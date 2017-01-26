@@ -3,9 +3,16 @@
 
   require("DbUtils.php");
 
-  if(isset($_POST['nomregion']) && isset($_POST['idregion'])) 
+  if(isset($_POST['nomregion']) && isset($_POST['idregion']))
   {
-          
+      try
+      {
+      	$connect->modifyRegion($_POST['idregion'], $_POST['nomregion']);
+      }
+      catch (Exception $exception)
+      {
+          echo $exception->getMessage();
+      }     
   }
 
 

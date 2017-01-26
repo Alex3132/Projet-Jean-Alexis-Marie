@@ -166,6 +166,10 @@ class DbUtils{
         throw new Exception("unknown region");
     }
 
+    /**
+     * Get list of all regions
+     * @return array
+     */
     public function getRegions() : array{
         $regions = $this->ExecuteQueryToArray(DbUtils::COLREGIONS, [], null);
         $array = [];
@@ -174,6 +178,31 @@ class DbUtils{
         }
 
         return $array;
+    }
+
+    /**
+     * Mody name of region
+     * @param mixed $idregion
+     * @param mixed $nomregion
+     * @throws Exception
+     */
+    public function modifyRegion($idregion, $nomregion)
+    {
+        if(isset($nomregion) != null)
+        {
+            $region = $this->findRegionById($idregion);
+            if($region->getNom() != $nomregion)
+            {
+                $bulk = new MongoDB\Driver\BulkWrite();
+                $bulk->update(['_id' => $region->getId()], ['$set' => ['nom' => $nomregion]]);
+                //$writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 1000);
+                $result = $this->manager->executeBulkWrite($this->dbname.".".DbUtils::COLREGIONS, $bulk);
+                if($result->getModifiedCount() != 1)
+                {
+                    throw new Exception("echec de la modification : ");
+                }
+            }
+        }
     }
 
     /**
@@ -192,8 +221,9 @@ class DbUtils{
         $filter = ['nom' =>['$regex' => new MONGODB\BSON\Regex($nom, 'i')]];
            $options = ['projection' => ['nom' => 1, 'lon' => 1, 'lat' => 1, '_id' => 1, '_id_dept' => 1, 'pop' => 1, 'cp' =>1]];
 
-    }else{
-echo "<div style=\"color: red;\">Pas de ville écrite<div>";
+    }else
+    {
+        echo "<div style=\"color: red;\">Pas de ville écrite<div>";
         throw new exception("pas de ville écrite.");
     }
         $array = $this->ExecuteQueryToArray('villes', $filter, $options);
