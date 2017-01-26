@@ -279,10 +279,15 @@ class DbUtils{
             $bulk = new MongoDB\Driver\BulkWrite();
         $bulk->update(['_id' => intval($idville)], ['$set' => [$query => $value]]);
         $result = $this->manager->executeBulkWrite($this->dbname.".".DbUtils::COLVILLES, $bulk);
+            
         if($result->getModifiedCount() != 1)
         {
             throw new Exception("echec de la modification : ");
         }
+            else
+            {
+            echo "<div>modification réussie.</div>";    
+            }
             
         }
         

@@ -24,9 +24,10 @@ $regions = $connect->getRegions();
     <fieldset><legend>Modifier la ville</legend>
 <?php
 
-        
+if($_SESSION[PROFIL]=='edit' || $_SESSION[PROFIL]=='admin')
+{        
         $vals=[];
-        $idv="";
+        
         
 if(isset($_POST['valeur']))
 {
@@ -44,15 +45,14 @@ if(isset($_POST['valeur']))
     foreach($vals as $key1 => $value1)
     {
        
-        if($value1[0] !== "dep" && $value1[0] !== "reg" && $value1[0] !== "_id" && $value1[0] !== "nom")
+        if($value1[0] !== "dep" && $value1[0] !== "reg" && $value1[0] !== "_id" && $value1[0] !== "nom" && $value1[0] !== "lat" && $value1[0] !== "lon")
         
             echo"<div><label>$value1[0] : <input type=\"text\" id=\"$value1[0]\" name=\"$value1[0]\" value=\"$value1[1]\"></label></div>\n";    
         
                 if($value1[0] == '_id')
                 {
+                    echo "<input type=\"text\" name=\"id\" value=\"$value1[1]\" hidden>";
                     
-                    $idv="".$value1[1];
-                    echo $idv;
                 }
                 if($value1[0] == 'nom')
                 {
@@ -61,32 +61,61 @@ if(isset($_POST['valeur']))
 
     }
     
+}   
+        
+        if(isset($_POST['id']))
+        {
+            $idv=$_POST['id'];
+        
+            if(isset($_POST['cp']))
+            {
+               
+                    $valeurcp=$_POST['cp'];
+        
+                    try
+                    {
+                        $connect->UpdateProperty($idv, 'cp', $valeurcp);
+                    }
+                    catch (Exception $exception)
+                        {
+                            echo $exception->getMessage();
+                        }
+        
+            }               
+        
+        }
+        
+        if(isset($_POST['id']))
+        {
+            $idv=$_POST['id'];
+        
+            if(isset($_POST['pop']))
+            {
+               
+                    $valeurpop=$_POST['pop'];
+        
+                    try
+                    {
+                        $connect->UpdateProperty($idv, 'pop', $valeurpop);
+                    }
+                    catch (Exception $exception)
+                        {
+                            echo $exception->getMessage();
+                        }
+        
+            }               
+        
+        }
 }
-    if(isset($_POST['cp'])){
-        echo $idv;
-        $valeurcp=$_POST['cp'];
-        
-        try
-    {
-        $connect->UpdateProperty($idv, 'cp', $valeurcp);
-    }
-    catch (Exception $exception)
-    {
-        echo $exception->getMessage();
-    }
-        
-    }    
         
         
-        
-
         ?>
         <input type="submit" formaction="#" value="modifier">
     </fieldset>
 </form>
 <div id="listregions">
 
-    <form action="#" method="post" id="changeregion" onsubmit="return verifchangeregion()">
+    <form action="#" method="post" id="changeregion" onsubmit="return verifchangeregion()" <?php echo ($_SESSION[PROFIL] == 'admin')? "" : "hidden";?>>
         <ul>
             <?php
             foreach ($regions as $region)
