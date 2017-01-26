@@ -78,6 +78,43 @@ class DbUtils{
         unset($this->manager);
     }
 
+    /**
+     * Verify if user exists
+     * @param mixed $pseudo
+     * @param mixed $pwd
+     */
+    public function getUser($pseudo, $pwd) : User {
+
+        if($pseudo != "" && $pwd != "") {
+
+            $filter = ['login' => $pseudo, 'mdp' => $pwd];
+            $users = $this->ExecuteQueryToArray(DbUtils::COLUSERS, $filter, null);
+            if(!empty($users) && count($users) == 1) {
+                $user = new User($users[0]);
+                return $user;
+            }
+
+            throw new Exception("unknow user");
+        }
+
+        throw new Exception("unknow user");
+    }
+
+    /**
+     * Test if user exists with its login
+     * @param mixed $login
+     * @return boolean
+     */
+    public function existUser($login) : bool {
+
+        $filter = ['login' => $login];
+        $users = $this->ExecuteQueryToArray(DbUtils::COLUSERS, $filter, null);
+        if(!empty($users) && count($users) == 1) {
+            return true;
+        }
+
+        return false;
+    }
 
     /**
      * Find Ville vy its id

@@ -54,6 +54,15 @@ function selectionregion() {
     }
 }
 
+function verifchangeregion() {
+    if (!document.getElementById("nomregion").value) {
+        alert("Le nom de la region ne peut pas être vide.");
+        return false;
+    }
+
+    return true;
+}
+
 //var pseudoOk = verifPseudo(f.pseudo);
 //var mailOk = verifMail(f.email);
 //var ageOk = verifAge(f.age);
