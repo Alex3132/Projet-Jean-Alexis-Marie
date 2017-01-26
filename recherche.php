@@ -10,10 +10,12 @@ if(!empty($_GET['ville']))
 	
     $idville = $_GET['ville'];
     $ville = $connect->findVilleById($idville);
+    
     if($ville != null) {
         $dep = $connect->findDepById($ville->getId_Dept());
         if(isset($dep)) {
             $region = $connect->findRegionById($dep->getIdRegion());
+           
         }
     }
 }
@@ -53,7 +55,9 @@ if(!empty($_GET['ville']))
        {
         
         $nomville = $ville->getNom();
-            $villerep= $connect->FindVilleByNomChoosen($nomville);
+        
+        
+                $villerep= $connect->FindVilleByNomChoosen($nomville);
         
         
         
