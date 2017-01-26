@@ -35,7 +35,7 @@ if(!empty($_GET['ville']))
             <label>Région : </label>
             <input type="text" id="region" name="region" value="<?php echo isset($dep) ? $region->getNom() : ""; ?>" />
         </div>
-        <input type="reset" name="reset" value="reset"><input type="submit" value="Envoyer">
+       <input type="submit" value="Envoyer">
     </div>
 
 </form>
@@ -45,7 +45,7 @@ if(!empty($_GET['ville']))
 
 
 <div id="resultat">
-
+<form action="maintenance.php" method="post">
     <?php
     //en venant d'une ville choisie sur la page d'accueil.
    
@@ -68,18 +68,18 @@ if(!empty($_GET['ville']))
                 
                      $dept= $connect->FindDepById($value);
                     
-                        echo "<div class=\"departement\">Département : ".$dept->getNom()."</div>" ; 
+                        echo "<div class=\"departement\"><input type=\"text\" name=\"valeur[]\" value=\"dep=>".$dept->getNom()."\" hidden readonly> Département : ".$dept->getNom()."</div>\n" ; 
                         
                             $region = $connect->findRegionById($dept->getIdregion());
                             
-                                echo "<div class=\"region\">Région : ".$region->getNom()."</div>";
+                                echo "<div class=\"region\"><input type=\"text\" name=\"valeur[]\" value=\"reg=>".$region->getNom()."\" hidden readonly>Région : ".$region->getNom()."</div>\n";
                 
                 
                  }
                  else if($key != '_id') 
                  {
                 
-                     echo "<div class=\"$key\">$key : $value </div>";
+                     echo "<div class=\"$key\"><input type=\"text\" name=\"valeur[]\" value=\"$key=>".$value."\" hidden readonly>$key : $value </div>\n";
                 
                  }
                }
@@ -108,18 +108,18 @@ if(!empty($_GET['ville']))
            {
                 $dept= $connect->FindDepById($value);
                     
-                    echo "<div class=\"departement\">Département : ".$dept->getNom()."</div>" ; 
+                    echo "<div class=\"departement\"><input type=\"text\" name=\"valeur[]\" value=\"dep=>".$dept->getNom()."\" hidden readonly>Département : ".$dept->getNom()."</div>\n" ; 
                         
                 $region = $connect->findRegionById($dept->getIdregion());
                             
-                    echo "<div class=\"region\">Région : ".$region->getNom()."</div>";
+                    echo "<div class=\"region\"><input type=\"text\" name=\"valeur[]\" value=\"reg=>".$region->getNom()."\" hidden readonly>Région : ".$region->getNom()."</div>\n";
                 
                 
             }
             else 
             {
                 
-                echo "<div class=\"$key\">$key : $value </div>";
+                echo "<div class=\"$key\"><input type=\"text\" name=\"valeur[]\" value=\"$key=>".$value."\" hidden readonly>$key : $value </div>\n";
                 
             }
         }
@@ -140,7 +140,7 @@ if(!empty($_GET['ville']))
                      if($key == "nom" && empty($_POST['dept']))
                      {
                         
-                         echo "<input type=\"radio\" name=\"choixville\" value=\"".$value."\">$value.</div> ";
+                         echo "<input type=\"radio\" name=\"choixville\" value=\"".$value."\"><input type=\"text\" name=\"valeur[]\" value=\"$key=>".$value."\" hidden readonly>$value.</div>\n ";
                          
                      }
                   else if($key == "_id_dept")
@@ -160,7 +160,7 @@ if(!empty($_GET['ville']))
                       
                           //affichage des boutons radio name = choixville
                          
-                              echo "<div>Département : ".$dept->getNom().".<input type=\"radio\" name=\"choixville\" value=\"".$villerep[$cle]->nom."\">".$villerep[$cle]->nom."";
+                              echo "<div>Département : ".$dept->getNom().".<input type=\"radio\" name=\"choixville\" value=\"".$villerep[$cle]->nom."\"><input type=\"text\" name=\"valeur[]\" value=\"dep=>".$villerep[$cle]->nom."\" hidden readonly>".$villerep[$cle]->nom."";
                       }
                           
                      }else
@@ -169,8 +169,8 @@ if(!empty($_GET['ville']))
                           $region = $connect->findRegionById($dept->getIdregion());
                 
                  
-                          echo "<div class=\"region\">Région : ".$region->getNom()."</div>\n";
-                            echo "<div>Département : ".$dept->getNom()." <div class=\"ville\">ville :"; 
+                          echo "<div class=\"region\"><input type=\"text\" name=\"valeur[]\" value=\"reg=>".$region->getNom()."\" hidden readonly>Région : ".$region->getNom()."</div>\n";
+                            echo "<div class=\"dep\"><input type=\"text\" name=\"valeur[]\" value=\"dep=>".$dept->getNom()."\" hidden readonly>Département : ".$dept->getNom()." <div class=\"ville\">ville :"; 
                       }
                  }
              }
@@ -181,7 +181,7 @@ if(!empty($_GET['ville']))
              
       
              echo "<div><input type=\"submit\" value=\"choisir\"></div>\n";
-                echo "</form>";
+                echo "</form>\n";
            
          }       
             
@@ -192,7 +192,7 @@ if(!empty($_GET['ville']))
             
             }elseif(isset($_POST['nom'])&& empty($_POST['nom']))
     {
-                    echo "<div class=\"error\">Veuillez rentrer le nom d'une ville.</div>";    
+                    echo "<div class=\"error\">Veuillez rentrer le nom d'une ville.</div>\n";    
     }
     
     //choix d'un bouton radio et affichage d'un résultat
@@ -205,25 +205,26 @@ if(!empty($_GET['ville']))
                         $dept= $villerep2[0]->_id_dept;
                             $findept= $connect->findDepById($dept);
                                 
-                                echo "<div>Departement : ".$findept->getNom()."</div>";
+                                echo "<div><input type=\"text\" name=\"valeur[]\" value=\"dep=>".$findept->getNom()."\" hidden readonly>Departement : ".$findept->getNom()."</div>\n";
                                     
                                     $findregion = $connect->findRegionById($findept->getIdregion());
                                 
-                                echo "<div class=\"region\">Region : ".$findregion->getNom()."</div>";
-                            echo "<div class=\"nom\">Nom : ".$villerep2[0]->nom."</div>";
-                
+                                echo "<div class=\"region\"><input type=\"text\" name=\"valeur[]\" value=\"reg=>".$findregion->getNom()."\" hidden readonly>Region : ".$findregion->getNom()."</div>\n";
+                            echo "<div class=\"nom\">Nom : ".$villerep2[0]->nom."</div>\n";
+                        
+                        echo "<input type=\"text\" name=\"valeur[]\" value=\"id=>".$villerep2[0]->_id."\" hidden readonly>";
                 
                 if(property_exists($villerep2[0], 'pop') && $villerep2[0]->pop)
-                    echo "<div class=\"pop\">Pop : ".$villerep2[0]->pop."</div>";
+                    echo "<div class=\"pop\"><input type=\"text\" name=\"valeur[]\" value=\"pop=>".$villerep2[0]->pop."\" hidden readonly>Pop : ".$villerep2[0]->pop."</div>\n";
               
                         if($villerep2[0]->lat)
-                            echo "<div class=\"lat\">Lat : ".$villerep2[0]->lat."</div>";
+                            echo "<div class=\"lat\"><input type=\"text\" name=\"valeur[]\" value=\"lat=>".$villerep2[0]->lat."\" hidden readonly>Lat : ".$villerep2[0]->lat."</div>\n";
                 
                             if($villerep2[0]->lon)
-                                echo "<div class=\"lon\">Lon : ".$villerep2[0]->lon."</div>";
+                                echo "<div class=\"lon\"><input type=\"text\" name=\"valeur[]\" value=\"lon=>".$villerep2[0]->lon."\" hidden readonly>Lon : ".$villerep2[0]->lon."</div>\n";
                 
                                 if($villerep2[0]->cp)
-                                    echo "<div class=\"cp\">Code Postal : ".$villerep2[0]->cp."</div>";
+                                    echo "<div class=\"cp\"><input type=\"text\" name=\"valeur[]\" value=\"cp=>".$villerep2[0]->cp."\" hidden readonly>Code Postal : ".$villerep2[0]->cp."</div>\n";
                 
                 
             }
@@ -232,6 +233,7 @@ if(!empty($_GET['ville']))
         
     
     ?>
+    </form>
     <div class="local">
     </div>
 
