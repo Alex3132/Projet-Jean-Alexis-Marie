@@ -20,9 +20,19 @@ if(isset($_POST['nomregion']) && isset($_POST['idregion'])) {
 $regions = $connect->getRegions();
 
 ?>
+<?php
 
+if(isset($_POST['valeur']))
+{
+    $valeurs=$_POST['valeur'];
+        
+        foreach($valeurs as $key => $val)
+        {
+            echo "$key : $val <br>";
+        }
+}
 
-
+?>
 <div id="listregions">
 
     <form action="#" method="post" id="changeregion" onsubmit="return verifchangeregion()">
