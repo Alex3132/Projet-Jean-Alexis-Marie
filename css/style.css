@@ -101,6 +101,9 @@ footer {
     background-color: #6b6b6b;
     
 }
+#recherche div{
+    display: inline-block;
+}
 
 footer{
     background-image:url("../img/footer.png");
