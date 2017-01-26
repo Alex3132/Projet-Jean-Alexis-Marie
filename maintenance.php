@@ -3,8 +3,9 @@
 
   require("DbUtils.php");
 
-  if(isset($_POST['nomregion']) && isset($_POST['idregion']){
-      
+  if(isset($_POST['nomregion']) && isset($_POST['idregion'])) 
+  {
+          
   }
 
 
@@ -19,7 +20,7 @@
             <?php
             foreach ($regions as $region)
             {
-                echo "<li><input type='radio' name='selectregion' onclick='selectionregion()'; value='".$region->getId()."'/>".$region->getNom()."</li>\n";
+                echo "<li><input type='radio' name='selectregion' onclick='selectionregion()'; value='".$region->getId()."'/><span>".$region->getNom()."</span></li>\n";
             }
 
             ?>
