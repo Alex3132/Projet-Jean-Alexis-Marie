@@ -4,10 +4,21 @@ require("DbUtils.php");
 
 $regions = $connect->getRegions();
 
-echo "<div>\n<ul>\n";
-foreach ($regions as $region) {
-    echo "<li>".$region->getNom()."<li>\n";
-}
+?>
 
-echo "</ul></div>\n";
+<div id="listregions">
+
+    <ul>
+        <?php
+        foreach ($regions as $region) 
+        {
+            echo "<li>".$region->getNom()."</li>\n";
+        }
+
+        ?>
+
+    </ul>
+
+
+</div>
     

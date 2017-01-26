@@ -59,7 +59,8 @@ h1 {}
 #menu {
     clear: both;
 }
-ul {
+
+#menu ul {
     list-style: none;
     /* font-family: 'Yanone Kaffeesatz', sans-serif; */
     
@@ -70,10 +71,12 @@ ul {
     margin: 0px;
     text-align: center;
 }
-li {
+
+#menu li {
     display: inline-block;
 }
-li a {
+
+#menu li a {
     display: block;
     line-height: 40px;
     color: #fff;
@@ -81,9 +84,10 @@ li a {
     text-align: center;
     padding: 0 20px 0 20px;
 }
-li a:hover:not(.active) {
+#menu li a:hover:not(.active) {
     background-color: #111;
 }
+
 .selected {
     background-color: red;
 }
