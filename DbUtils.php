@@ -270,6 +270,24 @@ class DbUtils{
     $array = $this->ExecuteQueryToArray('villes', $filter, $options);
     return $array;
        }
+    
+    
+    public function UpdateProperty($idville, $query, $value){
+        
+        if(isset($value) != null){
+            
+            $bulk = new MongoDB\Driver\BulkWrite();
+        $bulk->update(['_id' => intval($idville)], ['$set' => [$query => $value]]);
+        $result = $this->manager->executeBulkWrite($this->dbname.".".DbUtils::COLVILLES, $bulk);
+        if($result->getModifiedCount() != 1)
+        {
+            throw new Exception("echec de la modification : ");
+        }
+            
+        }
+        
+    }
+        
 
     /**
      * Find an object by its _id

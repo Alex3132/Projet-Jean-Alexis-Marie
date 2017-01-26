@@ -117,7 +117,7 @@ if(!empty($_GET['ville']))
         {
             if($key == '_id')
             {
-                
+               echo "<input type=\"text\" name=\"valeur[]\" value=\"$key=>".$value."\" hidden readonly>"; 
             }
            elseif($key == '_id_dept')
            {
@@ -225,9 +225,9 @@ if(!empty($_GET['ville']))
                                     $findregion = $connect->findRegionById($findept->getIdregion());
                                 
                                 echo "<div class=\"region\"><input type=\"text\" name=\"valeur[]\" value=\"reg=>".$findregion->getNom()."\" hidden readonly>Region : ".$findregion->getNom()."</div>\n";
-                            echo "<div class=\"nom\">Nom : ".$villerep2[0]->nom."</div>\n";
+                            echo "<div class=\"nom\"><input type=\"text\" name=\"valeur[]\" value=\"nom=>".$villerep2[0]->nom."\" hidden readonly>Nom : ".$villerep2[0]->nom."</div>\n";
                         
-                        echo "<input type=\"text\" name=\"valeur[]\" value=\"id=>".$villerep2[0]->_id."\" hidden readonly>";
+                        echo "<input type=\"text\" name=\"valeur[]\" value=\"_id=>".$villerep2[0]->_id."\" hidden readonly>";
                 
                 if(property_exists($villerep2[0], 'pop') && $villerep2[0]->pop)
                     echo "<div class=\"pop\"><input type=\"text\" name=\"valeur[]\" value=\"pop=>".$villerep2[0]->pop."\" hidden readonly>Pop : ".$villerep2[0]->pop."</div>\n";
