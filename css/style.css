@@ -38,23 +38,27 @@ body {}
 /*MENU*/
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+    list-style: none;
+    /* font-family: 'Yanone Kaffeesatz', sans-serif; */
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 14px;
+    background-color: #6b6b6b;
+    height: 40px;
+    margin: 0px;
+    text-align: center;
 }
 
 li {
-    float: left;
+    display: inline-block;
 }
 
 li a {
     display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
+    line-height: 40px;
+    color: #fff;
     text-decoration: none;
+    text-align: center;
+    padding: 0 20px 0 20px;
 }
 
 li a:hover:not(.active) {
