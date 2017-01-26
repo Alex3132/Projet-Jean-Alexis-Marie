@@ -5,12 +5,23 @@
         <div id="image">
 
 
-            <img>
+            <img src="img/cropped-logoldnr.png">
 
         </div>
 
         <div id="titre">
+
             <h1>SITE INTERNET</h1>
+
+        </div>
+
+        <div id="connecter">
+
+            <?php
+            echo "<p>Profil de : .$pseudo</p>"
+            
+            ?>
+
         </div>
 
     </header>

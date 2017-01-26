@@ -1,9 +1,12 @@
-body {}
+body {
+    margin: auto;
+}
 
 #carteFrance {
     width: 50%;
     height: 50%;
     margin: auto;
+    border: 1px solid;
 }
 
 #errorUser {
@@ -23,23 +26,43 @@ body {}
 
 #header {
     border: 1px solid;
+    width: 100%;
+    background-color: aqua;
+    height: 80px;
 }
 
 #image {
-    border: 1px solid;
-    float: right;
+    float: left;
+    text-align: center;
+    width: 25%;
+    height: 80px;
+}
+
+#connecter {
+    float: left;
+    width: 25%;
+    height: 80px;
+    text-align: center;
 }
 
 #titre {
-    border: 1px solid;
+    width: 50%;
+    float: left;
+    text-align: center;
 }
 
 
-/*MENU*/
+}
+h1 {}
 
+/*MENU*/
+#menu {
+    clear: both;
+}
 ul {
     list-style: none;
     /* font-family: 'Yanone Kaffeesatz', sans-serif; */
+    
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 14px;
     background-color: #6b6b6b;
@@ -47,11 +70,9 @@ ul {
     margin: 0px;
     text-align: center;
 }
-
 li {
     display: inline-block;
 }
-
 li a {
     display: block;
     line-height: 40px;
@@ -60,23 +81,17 @@ li a {
     text-align: center;
     padding: 0 20px 0 20px;
 }
-
 li a:hover:not(.active) {
     background-color: #111;
 }
-
 .selected {
     background-color: red;
 }
 
-
 /*FOOTER*/
-
 footer {
     display: block;
-    background: url("img\footer.png");
-}
-
-footer p {
     text-align: center;
+    background-color: aqua;
+    border: 1px solid;
 }
