@@ -58,9 +58,7 @@ body {
 h1 {}
 
 /*MENU*/
-#menu {
-    
-}
+#menu {}
 #menu ul {
     list-style: none;
     font-family: 'Roboto Condensed', sans-serif;
@@ -72,7 +70,6 @@ h1 {}
 }
 #menu li {
     display: inline-block;
-
 }
 #menu li a {
     display: block;
@@ -96,80 +93,95 @@ footer {
     background-color: aqua;
     border: 1px solid;
 }
-
-#nom, #dept, #region{
+#nom,
+#dept,
+#region {
     color: white;
     background-color: #6b6b6b;
-    
 }
-#recherche div{
+#recherche div {
     display: inline-block;
 }
-
-footer{
-    background-image:url("../img/footer.png");
-    color: white;   
+footer {
+    background-image: url("../img/footer.png");
+    color: white;
 }
-label{
-
-    
+h2 {
+    margin: 0;
 }
-h2{
-    margin:0;
-}
-legend{
-    border-style:groove;
+legend {
+    border-style: groove;
     padding: 0;
     background-image: url("../img/footer.png");
     color: white;
 }
-fielset{
-    color:red;  
-    border:  solid 
-    margin: 200px;
+fielset {
+    color: red;
+    border: solid margin: 200px;
 }
-
-@media (max-width: 1200px){
-    
-    
-    
+@media (max-width: 1200px) {
     #menu {
         float: left;
         width: 100%;
     }
-    header{
+    
+    header {
         height: auto;
     }
-    #cartedeFrance{
+    
+    #cartedeFrance {
         float: left;
     }
-    #titre{
-        float:left;
+    
+    #titre {
+        float: left;
         font-size: 0.8em;
         margin: 0;
         padding: 0;
-        
     }
-    #titre h1{
-        margin:0;
+    
+    #titre h1 {
+        margin: 0;
         padding: 0;
     }
-    #image{
-        float:left;
-    }
-    #connecter{
+    
+    #image {
         float: left;
     }
-    #image img{
+    
+    #connecter {
+        float: left;
+    }
+    
+    #image img {
         width: 100%
     }
+    
     #menu ul {
-        height:auto;
+        height: auto;
         padding: 0;
         width: 100%;
-    }  
-    #menu li{
+    }
+    
+    #menu li {
         border: 1px solid #111;
         width: 100%;
+    }
+    
+    #nom {
+        color: white;
+        background-color: #6b6b6b;
+        margin-left: 51px;
+    }
+    
+    #dept {
+        color: white;
+        background-color: #6b6b6b;
+    }
+    
+    #region {
+        color: white;
+        background-color: #6b6b6b;
+        margin-left: 36px;
     }
 }

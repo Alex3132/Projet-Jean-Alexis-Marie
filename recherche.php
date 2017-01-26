@@ -1,4 +1,3 @@
-
 <?php
 ini_set("display_errors",0);error_reporting(0);
 require_once("DbUtils.php");
@@ -22,34 +21,38 @@ if(!empty($_GET['ville']))
 
 ?>
 
-<form action="#" method="post">
-    <fieldset><legend><h2>Rechercher une ville</h2></legend>
-    <div id="recherche">
-        <div class="nom">
-            <label>Nom :</label>
-            <input type="text" name="nom" id="nom" value="<?php echo isset($ville) ? $ville->getNom() : "";?>">
-        </div>
-        <div class="dept">
-            <label>Département : </label>
-            <input type="text" id="dept" name="dept" value="<?php echo isset($dep) ? $dep->getNom() : ""; ?>" />
-        </div>
-        <div class="region">
-            <label>Région : </label>
-            <input type="text" id="region" name="region" value="<?php echo isset($dep) ? $region->getNom() : ""; ?>" />
-        </div>
-       <input type="submit" value="Envoyer">
-    </div>
-    </fieldset>
-</form>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>
+                <h2>Rechercher une ville</h2></legend>
+            <div id="recherche">
+                <div class="nom">
+                    <label>Nom :</label>
+                    <input type="text" name="nom" id="nom" value="<?php echo isset($ville) ? $ville->getNom() : " ";?>">
+                </div>
+                <div class="dept">
+                    <label>Département : </label>
+                    <input type="text" id="dept" name="dept" value="<?php echo isset($dep) ? $dep->getNom() : " "; ?>" />
+                </div>
+                <div class="region">
+                    <label>Région : </label>
+                    <input type="text" id="region" name="region" value="<?php echo isset($dep) ? $region->getNom() : " "; ?>" />
+                </div>
+                <br/>
+                <input type="submit" value="Envoyer">
+            </div>
+        </fieldset>
+    </form>
 
 
 
 
 
-<div id="resultat">
-<form  action="#" method="post">
-    <fieldset><legend>Résultat de la recherche</legend>
-    <?php
+    <div id="resultat">
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Résultat de la recherche</legend>
+                <?php
     //en venant d'une ville choisie sur la page d'accueil.
    
     if(isset($ville) && empty($_POST['nom']))
@@ -240,8 +243,8 @@ if(!empty($_GET['ville']))
             
     
      ?>
-    
-    <?php   
+
+                    <?php   
     require_once("utils.php");
     
         $connecte = isset($_SESSION[ID]);
@@ -254,10 +257,10 @@ if(!empty($_GET['ville']))
             }
     
         ?>
-    </fieldset>
-    </form>
-    <div class="local">
+            </fieldset>
+        </form>
+        <div class="local">
+        </div>
+
+
     </div>
-
-
-</div>
