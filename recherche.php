@@ -47,7 +47,7 @@ if(!empty($_GET['ville']))
 <div id="resultat">
 
     <?php
-    //si un nom de ville est tapé
+    //en venant d'une ville choisie sur la page d'accueil.
    
     if(isset($ville) && empty($_POST['nom']))
        {
@@ -87,7 +87,7 @@ if(!empty($_GET['ville']))
         
       }
     
-    
+    //traitement si l'on tape soi-même une recherche
     if(isset($_GET['ville']))
     {
        isset($_POST['nom']) ?  $nomville = $_POST['nom'] : $nomville = $_GET['ville'];
@@ -216,14 +216,14 @@ if(!empty($_GET['ville']))
                 if(property_exists($villerep2[0], 'pop') && $villerep2[0]->pop)
                     echo "<div class=\"pop\">Pop : ".$villerep2[0]->pop."</div>";
               
-                if($villerep2[0]->lat)
-                    echo "<div class=\"lat\">Lat : ".$villerep2[0]->lat."</div>";
+                        if($villerep2[0]->lat)
+                            echo "<div class=\"lat\">Lat : ".$villerep2[0]->lat."</div>";
                 
-                if($villerep2[0]->lon)
-                    echo "<div class=\"lon\">Lon : ".$villerep2[0]->lon."</div>";
+                            if($villerep2[0]->lon)
+                                echo "<div class=\"lon\">Lon : ".$villerep2[0]->lon."</div>";
                 
-                if($villerep2[0]->cp)
-                    echo "<div class=\"cp\">Code Postal : ".$villerep2[0]->cp."</div>";
+                                if($villerep2[0]->cp)
+                                    echo "<div class=\"cp\">Code Postal : ".$villerep2[0]->cp."</div>";
                 
                 
             }
