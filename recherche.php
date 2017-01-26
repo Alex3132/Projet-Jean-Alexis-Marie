@@ -45,7 +45,7 @@ if(!empty($_GET['ville']))
 
 
 <div id="resultat">
-<form action="maintenance.php" method="post">
+<form  action="#" method="post">
     <?php
     //en venant d'une ville choisie sur la page d'accueil.
    
@@ -82,15 +82,19 @@ if(!empty($_GET['ville']))
                      echo "<div class=\"$key\"><input type=\"text\" name=\"valeur[]\" value=\"$key=>".$value."\" hidden readonly>$key : $value </div>\n";
                 
                  }
+                   else if ($key == '_id')
+                   {
+                       echo "<input type=\"text\" name=\"valeur[]\" value=\"$key=>".$value."\" hidden readonly>";
+                   }
                }
           }
         
       }
     
     //traitement si l'on tape soi-même une recherche
-    if(isset($_GET['ville']))
+    if(isset($_POST['nom']))
     {
-       isset($_POST['nom']) ?  $nomville = $_POST['nom'] : $nomville = $_GET['ville'];
+        $nomville = $_POST['nom'] ;
             $villerep = $connect->FindVilleByNom($nomville);//nous ressort le document qui correspond
      
     
@@ -180,7 +184,7 @@ if(!empty($_GET['ville']))
              
              
       
-             echo "<div><input type=\"submit\" value=\"choisir\"></div>\n";
+             echo "<div><input type=\"submit\" formaction=\"#\" value=\"choisir\"></div>\n";
                 echo "</form>\n";
            
          }       
@@ -199,7 +203,7 @@ if(!empty($_GET['ville']))
     
             if(isset($_POST['choixville']))
             {    
-                
+               echo  
                 $choixville=$_POST['choixville'];
                     $villerep2 = $connect->FindVilleByNomChoosen($choixville);
                         $dept= $villerep2[0]->_id_dept;
@@ -230,7 +234,19 @@ if(!empty($_GET['ville']))
             }
             
     
-        
+     ?>
+    
+    <?php   
+    require_once("utils.php");
+    
+        $connecte = isset($_SESSION[ID]);
+    
+            if($connecte)
+            {
+                
+                echo "<input type=\"submit\" formaction=\"maintenance.php\" value=\"modifier\">";
+                
+            }
     
     ?>
     </form>
