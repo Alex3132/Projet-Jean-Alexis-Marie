@@ -18,8 +18,18 @@
         <div id="connecter">
 
             <?php
-            echo "<p>Profil de : .Coucou</p>"
+            require_once('utils.php');
+                $connecte= isset($_SESSION[ID]);
+                    if($connecte)
+                    {
+                    
+                
+                        echo "<p>Profil de : ".$_SESSION[PSEUDO]."</p>";
             
+                    }else
+                    {
+                        echo "Non connecté";
+                    }
             ?>
 
         </div>
