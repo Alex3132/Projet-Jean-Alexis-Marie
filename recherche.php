@@ -16,23 +16,7 @@ if(!empty($_GET['ville']))
             $region = $connect->findRegionById($dep->getIdRegion());
         }
     }
-}else {
-
-    if(!empty($_POST['ville']))
-    {
-       
-       
-        //Remplace la valeur par defaut par celle de l'URL
-        $nom = $_POST['ville'];
-        $ville = $connect->findVilleByNom($nom);
-        if(isset($ville)) {
-            $dep = $connect->findDepById($ville->getId_Dept());
-            if(isset($dep)) {
-                $region = $connect->findRegionById($dep->getIdRegion());
-            }
-            }
-        }
-    }
+}
 
 ?>
 
@@ -64,9 +48,49 @@ if(!empty($_GET['ville']))
 
     <?php
     //si un nom de ville est tapé
-    if(!empty($_POST['nom']))
+   
+    if(isset($ville) && empty($_POST['nom']))
+       {
+        
+        $nomville = $ville->getNom();
+            $villerep= $connect->FindVilleByNomChoosen($nomville);
+        
+        
+        
+           foreach($villerep as $cle => $valeur)
+           {
+        
+               foreach($villerep[$cle] as $key => $value)
+               {
+            
+                 if($key == '_id_dept')
+                 {
+                
+                     $dept= $connect->FindDepById($value);
+                    
+                        echo "<div class=\"departement\">Département : ".$dept->getNom()."</div>" ; 
+                        
+                            $region = $connect->findRegionById($dept->getIdregion());
+                            
+                                echo "<div class=\"region\">Région : ".$region->getNom()."</div>";
+                
+                
+                 }
+                 else if($key != '_id') 
+                 {
+                
+                     echo "<div class=\"$key\">$key : $value </div>";
+                
+                 }
+               }
+          }
+        
+      }
+    
+    
+    if(isset($_GET['ville']))
     {
-        $nomville = $_POST['nom'];
+       isset($_POST['nom']) ?  $nomville = $_POST['nom'] : $nomville = $_GET['ville'];
             $villerep = $connect->FindVilleByNom($nomville);//nous ressort le document qui correspond
      
     
