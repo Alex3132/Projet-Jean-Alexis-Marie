@@ -57,7 +57,7 @@ h1 {}
 
 /*MENU*/
 #menu {
-    clear: both;
+    
 }
 #menu ul {
     list-style: none;
@@ -92,4 +92,46 @@ footer {
     text-align: center;
     background-color: aqua;
     border: 1px solid;
+}
+
+@media (max-width: 1200px){
+    
+    
+    
+    #menu {
+        float: left;
+    }
+    header{
+        height: auto;
+    }
+    #cartedeFrance{
+        float: left;
+    }
+    #titre{
+        float:left;
+        font-size: 0.8em;
+        margin: 0;
+        padding: 0;
+        
+    }
+    #titre h1{
+        margin:0;
+        padding: 0;
+    }
+    #image{
+        float:left;
+    }
+    #connecter{
+        float: left;
+    }
+    #image img{
+        width: 100%
+    }
+    #menu ul {
+        height:auto;
+        padding: 0;
+    }  
+    #menu li{
+        width: 100%;
+    }
 }
