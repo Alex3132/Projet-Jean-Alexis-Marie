@@ -3,7 +3,9 @@
 
   require("DbUtils.php");
 
-  //if(isset($_POST['nomregion']))
+  if(isset($_POST['nomregion']) && isset($_POST['idregion']){
+      
+  }
 
 
   $regions = $connect->getRegions();
@@ -23,7 +25,7 @@
             ?>
         </ul>
 
-        
+        <input type="hidden" id="idregion" name="idregion" value="" />
         <input type="text" id="nomregion" name="nomregion" value="" />
         <input type="submit" value="Modifier" />
 

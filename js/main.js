@@ -47,9 +47,15 @@ function verifFormLogin(form) {
 function selectionregion() {
     var rates = document.getElementsByName('selectregion');
     var rate_value;
+    var form = document.getElementById("changeregion");
     for (var i = 0; i < rates.length; i++) {
         if (rates[i].checked) {
-            document.getElementById("nomregion").value = rates[i].value;
+            var idregion = rates[i].value;
+            //document.getElementById("nomregion").value = rates[i].value;
+            document.getElementById("idregion").value = idregion;
+            var nomregion = form.region;
+
+            document.getElementById("nomregion").value = "titi";
         }
     }
 }
