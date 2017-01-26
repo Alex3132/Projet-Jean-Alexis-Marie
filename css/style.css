@@ -100,6 +100,7 @@ footer {
     
     #menu {
         float: left;
+        width: 100%;
     }
     header{
         height: auto;
@@ -130,6 +131,7 @@ footer {
     #menu ul {
         height:auto;
         padding: 0;
+        width: 100%;
     }  
     #menu li{
         width: 100%;
