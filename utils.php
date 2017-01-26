@@ -33,9 +33,9 @@ function getBaseUrl()
     //if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
     $pageURL .= "://";
     if ($_SERVER["SERVER_PORT"] != "80") {
-        $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"]."/";
+        $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["PHP_SELF"];
     } else {
-        $pageURL .= $_SERVER["SERVER_NAME"]."/";
+        $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["PHP_SELF"];
     }
-    return $pageURL;
+    return str_replace("index.php", "", $pageURL);
 }
