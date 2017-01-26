@@ -44,19 +44,42 @@ function verifFormLogin(form) {
 //}
 
 var xhr = null;
+var IDREGION;
+
+function changeRegion() {
+    var modifregion = document.getElementById('modifregion');
+    var bt = document.getElementById('btModifRegion');
+
+    if (IDREGION === modifregion.value) {
+        bt.setAttribute('disabled', '');
+    } else {
+        bt.removeAttribute('disabled');
+    }
+}
+
+function setListDep(xmlr, idregion) {
+    if (xhr.status >= 200 && xhr.status < 400) {
+        document.getElementById("listdep").innerHTML = xhr.responseText;
+        var modifregion = document.getElementById('modifregion');
+        modifregion.value = idregion;
+        document.getElementById("divmodifregion").classList.remove('hidden');
+    }
+}
 
 function selectionregion(url) {
-    var rates = document.getElementsByName('selectregion');
+    var selectregion = document.getElementsByName('selectregion');
     var rate_value;
+    var idregion;
+    var nomregion;
     var form = document.getElementById("changeregion");
-    for (var i = 0; i < rates.length; i++) {
-        if (rates[i].checked) {
-            var idregion = rates[i].value;
-            //document.getElementById("nomregion").value = rates[i].value;
+    for (var i = 0; i < selectregion.length; i++) {
+        if (selectregion[i].checked) {
+            idregion = selectregion[i].value;
             document.getElementById("idregion").value = idregion;
-            var nomregion = rates[i].nextSibling.innerHTML;
-
+            nomregion = selectregion[i].nextSibling.innerHTML;
             document.getElementById("nomregion").value = nomregion;
+            IDREGION = idregion;
+            break;
         }
     }
 
@@ -67,15 +90,12 @@ function selectionregion(url) {
     xhr = new XMLHttpRequest()
     xhr.open('POST', url);
     var formdata = new FormData();
-    xhr.addEventListener('load', function () {
-        if (xhr.status >= 200 && xhr.status < 400) {
-            document.getElementById("listdep").innerHTML = xhr.responseText;
-        }
-    });
+    xhr.addEventListener('load', function(){setListDep(xhr, idregion);}); 
 
     formdata.append('idregion', idregion);
     xhr.send(formdata);
 }
+
 
 function verifchangeregion() {
     if (!document.getElementById("nomregion").value) {
@@ -85,6 +105,7 @@ function verifchangeregion() {
 
     return true;
 }
+
 
 //var pseudoOk = verifPseudo(f.pseudo);
 //var mailOk = verifMail(f.email);

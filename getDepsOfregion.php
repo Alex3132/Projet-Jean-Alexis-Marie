@@ -1,6 +1,9 @@
 <?php
 
+header("Content-Type: text/xml");
 header("Access-Control-Allow-Origin: *");
+
+
 require_once("DbUtils.php");
 
 if(isset($_POST['idregion'])) {

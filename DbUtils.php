@@ -210,10 +210,27 @@ class DbUtils{
      * @param mixed $dregion
      */
     public function getDepsByRegion($idregion) {
-        
+
         $idint = intval($idregion);
         $filter = ['_id_region' => $idint];
         return $this->ExecuteQueryToArray(DbUtils::COLDEPS, $filter, null);
+    }
+
+    /**
+     * modify id_region
+     * @param mixed $iddep
+     * @param mixed $idregion
+     */
+    public function modifyDepIdRegion($iddep, $idregion) {
+
+        $bulk = new MongoDB\Driver\BulkWrite();
+        $bulk->update(['_id' => $region->getId()], ['$set' => ['nom' => $nomregion]]);
+        //$writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 1000);
+        $result = $this->manager->executeBulkWrite($this->dbname.".".DbUtils::COLREGIONS, $bulk);
+        if($result->getModifiedCount() != 1)
+        {
+            throw new Exception("echec de la modification : ");
+        }
     }
 
     /**
