@@ -24,7 +24,7 @@
                     {
                     
                 
-                        echo "<p>Profil de : ".$_SESSION[PSEUDO]."</p>";
+                        echo "<p>Connecté sous le nom : ".$_SESSION[PSEUDO]."</p>";
             
                     }else
                     {
