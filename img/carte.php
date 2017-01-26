@@ -4,24 +4,24 @@
             stroke: #000;
             stroke-width: 1px;
         }
-
-            polygon:hover {
-                stroke: #FFF;
-                fill: #000;
-                stroke-width: 2px;
-            }
-
+        
+        polygon:hover {
+            stroke: #FFF;
+            fill: #000;
+            stroke-width: 2px;
+        }
+        
         text {
             font-size: 12px;
             fill: #000;
             alignment-baseline: middle;
         }
-
-            text:hover {
-                fill: #F00;
-                font-weight: bold;
-            }
-
+        
+        text:hover {
+            fill: #F00;
+            font-weight: bold;
+        }
+        
         g circle {
             stroke: #F00;
             stroke-width: 1;
@@ -29,7 +29,7 @@
             fill: #000;
             fill-opacity: 0.5;
         }
-
+        
         g.cities circle {
             stroke: #ff0;
             stroke-width: 1;
@@ -37,14 +37,14 @@
             fill: #F00;
             fill-opacity: 0.8;
         }
-
+        
         g.cities text {
             fill: #F00 !important;
             stroke: #FF0;
             ;
             stroke-width: 0.5px;
         }
-
+        
         g.regions circle {
             stroke: #fff;
             stroke-width: 1;
@@ -52,23 +52,23 @@
             fill: #000;
             fill-opacity: 0.3;
         }
-
+        
         g.regions:hover text {
             fill: #fff;
             stroke: #000;
             stroke-width: 0.5px;
         }
-
+        
         g.regions:hover circle {
             fill-opacity: 0.4;
         }
-
+        
         g:hover circle {
             fill: #FF0;
             fill-opacity: 1;
             stroke-opacity: 1;
         }
-
+        
         g text {
             fill: #000;
             font-size: 0px;
@@ -76,7 +76,7 @@
             alignment-baseline: middle;
             text-anchor: middle;
         }
-
+        
         g:hover text {
             font-size: 30px;
             fill: #000;
@@ -297,402 +297,585 @@
     </g>
     <g>
         <text x="372" y="163">Argenteuil</text>
-        <circle cx="372" cy="163" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=998">
+            <circle cx="372" cy="163" r="5" />
+        </a>
     </g>
     <g>
         <text x="683" y="651">Ajaccio</text>
-        <circle cx="683" cy="651" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=263">
+            <circle cx="683" cy="651" r="5" />
+        </a>
     </g>
     <g>
         <text x="-2665" y="2546">Fort-de-France</text>
-        <circle cx="-2665" cy="2546" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=11547">
+            <circle cx="-2665" cy="2546" r="5" />
+        </a>
     </g>
     <g>
         <text x="-2686" y="2431">Les Abymes</text>
-        <circle cx="-2686" cy="2431" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=17539">
+            <circle cx="-2686" cy="2431" r="5" />
+        </a>
     </g>
     <g>
         <text x="324" y="378">Limoges</text>
-        <circle cx="324" cy="378" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=18395">
+            <circle cx="324" cy="378" r="5" />
+        </a>
     </g>
     <g>
         <text x="195" y="322">La Roche-sur-Yon</text>
-        <circle cx="195" cy="322" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=16239">
+            <circle cx="195" cy="322" r="5" />
+        </a>
     </g>
     <g>
         <text x="495" y="510">Avignon</text>
-        <circle cx="495" cy="510" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=1816">
+            <circle cx="495" cy="510" r="5" />
+        </a>
     </g>
     <g>
         <text x="372" y="171">Boulogne-Billancourt</text>
-        <circle cx="372" cy="171" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=4223">
+            <circle cx="372" cy="171" r="5" />
+        </a>
     </g>
     <g>
         <text x="548" y="568">Toulon</text>
-        <circle cx="548" cy="568" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=33651">
+            <circle cx="548" cy="568" r="5" />
+        </a>
     </g>
     <g>
         <text x="367" y="511">Albi</text>
-        <circle cx="367" cy="511" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=291">
+            <circle cx="367" cy="511" r="5" />
+        </a>
     </g>
     <g>
         <text x="382" y="175">Créteil</text>
-        <circle cx="382" cy="175" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=8820">
+            <circle cx="382" cy="175" r="5" />
+        </a>
     </g>
     <g>
         <text x="329" y="505">Montauban</text>
-        <circle cx="329" cy="505" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=21264">
+            <circle cx="329" cy="505" r="5" />
+        </a>
     </g>
     <g>
         <text x="374" y="97">Amiens</text>
-        <circle cx="374" cy="97" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=535">
+            <circle cx="374" cy="97" r="5" />
+        </a>
     </g>
     <g>
         <text x="377" y="164">Saint-Denis</text>
-        <circle cx="377" cy="164" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=27842">
+            <circle cx="377" cy="164" r="5" />
+        </a>
     </g>
     <g>
         <text x="241" y="346">Niort</text>
-        <circle cx="241" cy="346" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=22849">
+            <circle cx="241" cy="346" r="5" />
+        </a>
     </g>
     <g>
         <text x="366" y="174">Versailles</text>
-        <circle cx="366" cy="174" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=35080">
+            <circle cx="366" cy="174" r="5" />
+        </a>
     </g>
     <g>
         <text x="388" y="168">Chelles</text>
-        <circle cx="388" cy="168" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=7211">
+            <circle cx="388" cy="168" r="5" />
+        </a>
     </g>
     <g>
         <text x="557" y="375">Annecy</text>
-        <circle cx="557" cy="375" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=727">
+            <circle cx="557" cy="375" r="5" />
+        </a>
     </g>
     <g>
         <text x="548" y="398">Chambéry</text>
-        <circle cx="548" cy="398" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=6296">
+            <circle cx="548" cy="398" r="5" />
+        </a>
     </g>
     <g>
         <text x="497" y="314">Chalon-sur-Saône</text>
-        <circle cx="497" cy="314" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=6269">
+            <circle cx="497" cy="314" r="5" />
+        </a>
     </g>
     <g>
         <text x="560" y="255">Vesoul</text>
-        <circle cx="560" cy="255" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=35145">
+            <circle cx="560" cy="255" r="5" />
+        </a>
     </g>
     <g>
         <text x="268" y="560">Tarbes</text>
-        <circle cx="268" cy="560" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=33056">
+            <circle cx="268" cy="560" r="5" />
+        </a>
     </g>
     <g>
         <text x="273" y="229">Le Mans</text>
-        <circle cx="273" cy="229" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=17154">
+            <circle cx="273" cy="229" r="5" />
+        </a>
     </g>
     <g>
         <text x="268" y="199">Alençon</text>
-        <circle cx="268" cy="199" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=311">
+            <circle cx="268" cy="199" r="5" />
+        </a>
     </g>
     <g>
         <text x="364" y="130">Beauvais</text>
-        <circle cx="364" cy="130" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=2719">
+            <circle cx="364" cy="130" r="5" />
+        </a>
     </g>
     <g>
         <text x="402" y="598">Perpignan</text>
-        <circle cx="402" cy="598" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=24129">
+            <circle cx="402" cy="598" r="5" />
+        </a>
     </g>
     <g>
         <text x="381" y="185">Évry</text>
-        <circle cx="381" cy="185" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=10738">
+            <circle cx="381" cy="185" r="5" />
+        </a>
     </g>
     <g>
         <text x="102" y="246">Lorient</text>
-        <circle cx="102" cy="246" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=18747">
+            <circle cx="102" cy="246" r="5" />
+        </a>
     </g>
     <g>
         <text x="522" y="149">Verdun</text>
-        <circle cx="522" cy="149" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=34925">
+            <circle cx="522" cy="149" r="5" />
+        </a>
     </g>
     <g>
         <text x="227" y="225">Laval</text>
-        <circle cx="227" cy="225" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=16539">
+            <circle cx="227" cy="225" r="5" />
+        </a>
     </g>
     <g>
         <text x="352" y="24">Calais</text>
-        <circle cx="352" cy="24" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=5338">
+            <circle cx="352" cy="24" r="5" />
+        </a>
     </g>
     <g>
         <text x="237" y="266">Angers</text>
-        <circle cx="237" cy="266" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=656">
+            <circle cx="237" cy="266" r="5" />
+        </a>
     </g>
     <g>
         <text x="416" y="300">Nevers</text>
-        <circle cx="416" cy="300" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=22784">
+            <circle cx="416" cy="300" r="5" />
+        </a>
     </g>
     <g>
         <text x="432" y="471">Mende</text>
-        <circle cx="432" cy="471" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=20346">
+            <circle cx="432" cy="471" r="5" />
+        </a>
     </g>
     <g>
         <text x="186" y="115">Cherbourg-Octeville</text>
-        <circle cx="186" cy="115" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=7302">
+            <circle cx="186" cy="115" r="5" />
+        </a>
     </g>
     <g>
         <text x="294" y="493">Agen</text>
-        <circle cx="294" cy="493" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=106">
+            <circle cx="294" cy="493" r="5" />
+        </a>
     </g>
     <g>
         <text x="2923" y="5008">Saint-Denis</text>
-        <circle cx="2923" cy="5008" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=27842">
+            <circle cx="2923" cy="5008" r="5" />
+        </a>
     </g>
     <g>
         <text x="475" y="407">Saint-Étienne</text>
-        <circle cx="475" cy="407" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=28316">
+            <circle cx="475" cy="407" r="5" />
+        </a>
     </g>
     <g>
         <text x="457" y="142">Reims</text>
-        <circle cx="457" cy="142" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=25971">
+            <circle cx="457" cy="142" r="5" />
+        </a>
     </g>
     <g>
         <text x="328" y="258">Blois</text>
-        <circle cx="328" cy="258" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=3728">
+            <circle cx="328" cy="258" r="5" />
+        </a>
     </g>
     <g>
         <text x="528" y="292">Dole</text>
-        <circle cx="528" cy="292" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=9531">
+            <circle cx="528" cy="292" r="5" />
     </g>
     <g>
         <text x="280" y="327">Poitiers</text>
-        <circle cx="280" cy="327" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=24788">
+            <circle cx="280" cy="327" r="5" />
+        </a>
     </g>
     <g>
         <text x="297" y="272">Tours</text>
-        <circle cx="297" cy="272" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=33717">
+            <circle cx="297" cy="272" r="5" />
+        </a>
     </g>
     <g>
         <text x="345" y="311">Châteauroux</text>
-        <circle cx="345" cy="311" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=6905">
+            <circle cx="345" cy="311" r="5" />
     </g>
     <g>
         <text x="538" y="426">Grenoble</text>
-        <circle cx="538" cy="426" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=12949">
+            <circle cx="538" cy="426" r="5" />
+        </a>
     </g>
     <g>
         <text x="292" y="531">Auch</text>
-        <circle cx="292" cy="531" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=1446">
+            <circle cx="292" cy="531" r="5" />
+        </a>
     </g>
     <g>
         <text x="240" y="515">Mont-de-Marsan</text>
-        <circle cx="240" cy="515" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=21414">
+            <circle cx="240" cy="515" r="5" />
+        </a>
     </g>
     <g>
         <text x="450" y="434">Le Puy-en-Velay</text>
-        <circle cx="450" cy="434" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=17488">
+            <circle cx="450" cy="434" r="5" />
+        </a>
     </g>
     <g>
         <text x="130" y="193">Saint-Brieuc</text>
-        <circle cx="130" cy="193" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=27566">
+            <circle cx="130" cy="193" r="5" />
+        </a>
     </g>
     <g>
         <text x="270" y="125">Le Havre</text>
-        <circle cx="270" cy="125" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=17087">
+            <circle cx="270" cy="125" r="5" />
+        </a>
     </g>
     <g>
         <text x="49" y="201">Brest</text>
-        <circle cx="49" cy="201" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=4689">
+            <circle cx="49" cy="201" r="5" />
+        </a>
     </g>
     <g>
         <text x="573" y="216">Épinal</text>
-        <circle cx="573" cy="216" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=10234">
+            <circle cx="573" cy="216" r="5" />
+        </a>
     </g>
     <g>
         <text x="336" y="198">Chartres</text>
-        <circle cx="336" cy="198" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=6766">
+            <circle cx="336" cy="198" r="5" />
+        </a>
     </g>
     <g>
         <text x="319" y="159">Évreux</text>
-        <circle cx="319" cy="159" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=10734">
+            <circle cx="319" cy="159" r="5" />
+        </a>
     </g>
     <g>
         <text x="333" y="477">Cahors</text>
-        <circle cx="333" cy="477" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=5309">
+            <circle cx="333" cy="477" r="5" />
+        </a>
     </g>
     <g>
         <text x="553" y="281">Besançon</text>
-        <circle cx="553" cy="281" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=3217">
+            <circle cx="553" cy="281" r="5" />
+        </a>
     </g>
     <g>
         <text x="353" y="356">Guéret</text>
-        <circle cx="353" cy="356" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=13122">
+            <circle cx="353" cy="356" r="5" />
+        </a>
     </g>
     <g>
         <text x="472" y="518">Nîmes</text>
-        <circle cx="472" cy="518" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=22847">
+            <circle cx="472" cy="518" r="5" />
+        </a>
     </g>
     <g>
         <text x="412" y="383">Clermont-Ferrand</text>
-        <circle cx="412" cy="383" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=7709">
+            <circle cx="412" cy="383" r="5" />
+        </a>
     </g>
     <g>
         <text x="337" y="427">Brive-la-Gaillarde</text>
-        <circle cx="337" cy="427" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=4884">
+            <circle cx="337" cy="427" r="5" />
+        </a>
     </g>
     <g>
         <text x="379" y="293">Bourges</text>
-        <circle cx="379" cy="293" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=4299">
+            <circle cx="379" cy="293" r="5" />
+        </a>
     </g>
     <g>
         <text x="499" y="442">Valence</text>
-        <circle cx="499" cy="442" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=34318">
+            <circle cx="499" cy="442" r="5" />
+        </a>
     </g>
     <g>
         <text x="209" y="356">La Rochelle</text>
-        <circle cx="209" cy="356" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=16222">
+            <circle cx="209" cy="356" r="5" />
+        </a>
     </g>
     <g>
         <text x="717" y="597">Bastia</text>
-        <circle cx="717" cy="597" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=2377">
+            <circle cx="717" cy="597" r="5" />
+        </a>
     </g>
     <g>
         <text x="504" y="277">Dijon</text>
-        <circle cx="504" cy="277" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=23468">
+            <circle cx="504" cy="277" r="5" />
     </g>
     <g>
         <text x="247" y="147">Caen</text>
-        <circle cx="247" cy="147" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=23468">
+            <circle cx="247" cy="147" r="5" />
     </g>
     <g>
         <text x="271" y="392">Angoulême</text>
-        <circle cx="271" cy="392" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=23468">
+            <circle cx="271" cy="392" r="5" />
     </g>
     <g>
         <text x="387" y="484">Rodez</text>
-        <circle cx="387" cy="484" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=23468">
+            <circle cx="387" cy="484" r="5" />
     </g>
     <g>
         <text x="501" y="185">Saint-Dizier</text>
-        <circle cx="501" cy="185" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=23468">
+            <circle cx="501" cy="185" r="5" />
     </g>
     <g>
         <text x="246" y="555">Pau</text>
-        <circle cx="246" cy="555" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=23468">
+            <circle cx="246" cy="555" r="5" />
     </g>
     <g>
         <text x="615" y="246">Mulhouse</text>
-        <circle cx="615" cy="246" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=23468">
+            <circle cx="615" cy="246" r="5" />
     </g>
     <g>
         <text x="408" y="563">Narbonne</text>
-        <circle cx="408" cy="563" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=23468">
+            <circle cx="408" cy="563" r="5" />
     </g>
     <g>
         <text x="490" y="107">Charleville-Mézières</text>
-        <circle cx="490" cy="107" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=23468">
+            <circle cx="490" cy="107" r="5" />
     </g>
     <g>
         <text x="-2245" y="3217">Cayenne</text>
-        <circle cx="-2245" cy="3217" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=23468">
+            <circle cx="-2245" cy="3217" r="5" />
     </g>
     <g>
         <text x="593" y="255">Belfort</text>
-        <circle cx="593" cy="255" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=23468">
+            <circle cx="593" cy="255" r="5" />
     </g>
     <g>
         <text x="341" y="568">Pamiers</text>
-        <circle cx="341" cy="568" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=23468">
+            <circle cx="341" cy="568" r="5" />
     </g>
     <g>
         <text x="488" y="421">Annonay</text>
-        <circle cx="488" cy="421" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=24102">
+            <circle cx="488" cy="421" r="5" />
     </g>
     <g>
         <text x="298" y="425">Périgueux</text>
-        <circle cx="298" cy="425" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=24102">
+            <circle cx="298" cy="425" r="5" />
     </g>
     <g>
         <text x="388" y="345">Montluçon</text>
-        <circle cx="388" cy="345" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=21733">
+            <circle cx="388" cy="345" r="5" />
     </g>
     <g>
         <text x="560" y="151">Metz</text>
-        <circle cx="560" cy="151" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=20627">
+            <circle cx="560" cy="151" r="5" />
+        </a>
     </g>
     <g>
         <text x="421" y="101">Saint-Quentin</text>
-        <circle cx="421" cy="101" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=30699">
+            <circle cx="421" cy="101" r="5" />
+        </a>
     </g>
     <g>
         <text x="460" y="208">Troyes</text>
-        <circle cx="460" cy="208" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=34053">
+            <circle cx="460" cy="208" r="5" />
+        </a>
     </g>
     <g>
         <text x="435" y="243">Auxerre</text>
-        <circle cx="435" cy="243" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=1729">
+            <circle cx="435" cy="243" r="5" />
+        </a>
     </g>
     <g>
         <text x="556" y="467">Gap</text>
-        <circle cx="556" cy="467" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=12079">
+            <circle cx="556" cy="467" r="5" />
+        </a>
     </g>
     <g>
         <text x="561" y="182">Nancy</text>
-        <circle cx="561" cy="182" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=22463">
+            <circle cx="561" cy="182" r="5" />
+        </a>
     </g>
     <g>
         <text x="381" y="443">Aurillac</text>
-        <circle cx="381" cy="443" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=1611">
+            <circle cx="381" cy="443" r="5" />
+        </a>
     </g>
     <g>
         <text x="355" y="235">Orléans</text>
-        <circle cx="355" cy="235" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=23468">
+            <circle cx="355" cy="235" r="5" />
+        </a>
     </g>
     <g>
         <text x="514" y="354">Bourg-en-Bresse</text>
-        <circle cx="514" cy="354" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=4298">
+            <circle cx="514" cy="354" r="5" />
+        </a>
     </g>
     <g>
         <text x="541" y="518">Manosque</text>
-        <circle cx="541" cy="518" r="5" />
+        <a xlink:href="index.php?page=recherche&amp;ville=19517">
+            <circle cx="541" cy="518" r="5" />
+        </a>
     </g>
     <g class="cities">
         <text x="237" y="449">Bordeaux</text>
-        <a xlink:href="index.php?page=recherche&amp;ville=4020"><circle cx="237" cy="449" r="4" /></a>
+        <a xlink:href="index.php?page=recherche&amp;ville=4020">
+            <circle cx="237" cy="449" r="4" />
+        </a>
     </g>
     <g class="cities">
         <text x="411" y="46">Lille</text>
-        <a xlink:href="index.php?page=recherche&amp;ville=18371"><circle cx="411" cy="46" r="4" /></a>
+        <a xlink:href="index.php?page=recherche&amp;ville=18371">
+            <circle cx="411" cy="46" r="4" />
+        </a>
     </g>
     <g class="cities">
         <text x="496" y="385">Lyon</text>
-        <a xlink:href="index.php?page=recherche&amp;ville=19124"><circle cx="496" cy="385" r="4" /></a>
+        <a xlink:href="index.php?page=recherche&amp;ville=19124">
+            <circle cx="496" cy="385" r="4" />
+        </a>
     </g>
     <g class="cities">
         <text x="523" y="555">Marseille</text>
-        <a xlink:href="index.php?page=recherche&amp;ville=19913"><circle cx="523" cy="555" r="4" /></a>
+        <a xlink:href="index.php?page=recherche&amp;ville=19913">
+            <circle cx="523" cy="555" r="4" />
+        </a>
     </g>
     <g class="cities">
         <text x="450" y="534">Montpellier</text>
-        <a xlink:href="index.php?page=recherche&amp;ville=21807"><circle cx="450" cy="534" r="4" /></a>
+        <a xlink:href="index.php?page=recherche&amp;ville=21807">
+            <circle cx="450" cy="534" r="4" />
+        </a>
     </g>
     <g class="cities">
         <text x="189" y="283">Nantes</text>
-        <a xlink:href="index.php?page=recherche&amp;ville=22479"><circle cx="189" cy="283" r="4" /></a>
+        <a xlink:href="index.php?page=recherche&amp;ville=22479">
+            <circle cx="189" cy="283" r="4" />
+        </a>
     </g>
     <g class="cities">
         <text x="611" y="527">Nice</text>
-        <a xlink:href="index.php?page=recherche&amp;ville=22803"><circle cx="611" cy="527" r="4" /></a>
+        <a xlink:href="index.php?page=recherche&amp;ville=22803">
+            <circle cx="611" cy="527" r="4" />
+        </a>
     </g>
     <g class="cities">
         <text x="376" y="169">Paris</text>
-        <a xlink:href="index.php?page=recherche&amp;ville=23890"><circle cx="376" cy="169" r="4" /></a>
+        <a xlink:href="index.php?page=recherche&amp;ville=23890">
+            <circle cx="376" cy="169" r="4" />
+        </a>
     </g>
     <g class="cities">
         <text x="183" y="223">Rennes</text>
-        <a xlink:href="index.php?page=recherche&amp;ville=26050"><circle cx="183" cy="223" r="4" /></a>
+        <a xlink:href="index.php?page=recherche&amp;ville=26050">
+            <circle cx="183" cy="223" r="4" />
+        </a>
     </g>
     <g class="cities">
         <text x="635" y="189">Strasbourg</text>
-        <a xlink:href="index.php?page=recherche&amp;ville=32856"><circle cx="635" cy="189" r="4" /></a>
+        <a xlink:href="index.php?page=recherche&amp;ville=32856">
+            <circle cx="635" cy="189" r="4" />
+        </a>
     </g>
     <g class="cities">
         <text x="333" y="534">Toulouse</text>
-        <a xlink:href="index.php?page=recherche&amp;ville=33656"><circle cx="333" cy="534" r="4" /></a>
+        <a xlink:href="index.php?page=recherche&amp;ville=33656">
+            <circle cx="333" cy="534" r="4" />
+        </a>
     </g>
 </svg>
