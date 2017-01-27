@@ -17,14 +17,22 @@ if(isset($_POST['nomregion']) && isset($_POST['idregion'])) {
     }
 } else if(isset($_POST['modifregion']) && isset($_POST['selectdep'])) {
 
-    $connect->modifyDepIdRegion($_POST['modifregion'], $_POST['selectdep']);
+    try
+    {
+    	$connect->modifyDepIdRegion($_POST['modifregion'], $_POST['selectdep']);
+    }
+    catch (Exception $exception)
+    {
+        echo $exception->getMessage();
+    }
+
 }
 
 $regions = $connect->getRegions();
 
 ?>
 
-<div class="containerform <?php if(!isset($_POST['valeur'])) echo " hidden"; ?> ">
+<div class="containerform <?php if(!isset($_POST['valeur'])) echo " hiddenville"; ?> ">
     <div class="titreform">Modifier la ville</div>
     <form action="#" method="post">
         <?php
@@ -88,15 +96,16 @@ $regions = $connect->getRegions();
 
         ?>
         <input type="submit" formaction="#" value="Modifier" />
-      </form>
+    </form>
 </div>
 
 
-<div id="listregions" class="containerform">
-    <div class="titreform">Modifier le nom des régions</div>
-    <form action="#" method="post" id="changeregion" onsubmit="return verifchangeregion()" <?php echo ($_SESSION[PROFIL] == 'admin')? "" : "hidden";?>>
-        <div class="list">
-            <?php
+<div class="grid2 <?php if(isset($_SESSION[PROFIL]) && $_SESSION[PROFIL] == "edit") echo " hiddenville"; ?> ">
+    <div id="listregions" class="containerform gridrech">
+        <div class="titreform">Modifier le nom des régions</div>
+        <form action="#" method="post" id="changeregion" onsubmit="return verifchangeregion()" <?php echo ($_SESSION[PROFIL] == 'admin')? "" : "hidden";?>>
+            <div class="list">
+                <?php
                 foreach ($regions as $region)
                 {
                     echo "<div>";
@@ -104,41 +113,47 @@ $regions = $connect->getRegions();
                     echo "<span>".$region->getNom()."</span>";
                     echo "</div>\n";
                 }
-            ?>
-        </div>
-
-        <input type="hidden" id="idregion" name="idregion" value="" />
-        <input type="hidden" id="nreg" name="nreg" value="" />
-        <input type="text" id="nomregion" name="nomregion" value="" />
-        <input type="submit" value="Modifier" />
-
-    </form>
-</div>  
-
-<div id="ldpeps" class="containerform hidden">
-    <div class="titreform">Département de la région <span id="nomtitreregion"></span> </div>
-    <form id="changedep" action="#" method="post">
-
-        <div id="listdep"></div>
-
-        <div id="divmodifregion" class="hidden">
-            <select name="modifregion" id="modifregion" onchange="changeRegion(<?php $region->getId() ?>);">
-                <?php
-            foreach ($regions as $region)
-            {
-                echo "<option value='".$region->getId();
-                if(isset($_POST['idregion']))
-                {
-                    if(intval($_POST['idregion']) == $region->getId())
-                    {
-                        echo " selected";
-                    }
-                }
-                echo "'>".$region->getNom()."</option>\n";
-            }
                 ?>
-            </select>
-            <input type="submit" value="Modifier" id="btModifRegion" disabled />
+            </div>
+
+            <input type="hidden" id="idregion" name="idregion" value="" />
+            <input type="hidden" id="nreg" name="nreg" value="" />
+            <div class="grid2">
+                <input type="text" id="nomregion" name="nomregion" value="" />
+                <input type="submit" value="Modifier" />
+            </div>
+
+        </form>
+    </div>
+
+    <div id="ldpeps" class="containerform gridrech hidden">
+        <div class="titreform">
+            Département de la région
+            <span id="nomtitreregion"></span>
         </div>
-    </form>
+        <form id="changedep" action="#" method="post">
+
+            <div id="listdep"></div>
+
+            <div id="divmodifregion" class="grid2 bottom hidden">
+                <select name="modifregion" id="modifregion" onchange="changeRegion(<?php $region->getId() ?>);">
+                    <?php
+                    foreach ($regions as $region)
+                    {
+                        echo "<option value='".$region->getId();
+                        if(isset($_POST['idregion']))
+                        {
+                            if(intval($_POST['idregion']) == $region->getId())
+                            {
+                                echo " selected";
+                            }
+                        }
+                        echo "'>".$region->getNom()."</option>\n";
+                    }
+                    ?>
+                </select>
+                <input type="submit" value="Modifier" id="btModifRegion" disabled />
+            </div>
+        </form>
+    </div>
 </div>

@@ -10,22 +10,22 @@
  */
 class Coord
 {
-    private $lat;
-    private $lon;
+    public $lat;
+    public $lon;
 
     /**
      * Default constructor
-     * @param mixed $lat 
-     * @param mixed $lon 
+     * @param mixed $lat
+     * @param mixed $lon
      */
-    public function ___contruct($lat = null, $lon) {
+    public function __construct($lat = null, $lon) {
         $this->lat = $lat;
         $this->lon = $lon;
     }
 
     /**
      * Set lat
-     * @param int $lat 
+     * @param int $lat
      */
     public function setLat(int $lat) {
         $this->lat = $lat;
@@ -33,7 +33,7 @@ class Coord
 
     /**
      * Set lon
-     * @param int $lon 
+     * @param int $lon
      */
     public function setLon(int $lon) {
         $this->lon = $lon;

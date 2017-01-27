@@ -28,6 +28,12 @@ body {
     visibility: hidden;
 }
 
+.hiddenville {
+    visibility: hidden;
+    position: absolute;
+    overflow: hidden;
+}
+
 .inputerror {
     background-color: lightpink;
 }
@@ -73,15 +79,6 @@ input[type="text"] {
 form {
     display: flex;
     flex-direction: column;
-    /*font-size: 16px;
-    color: #666;
-    /*padding: 10px 20px;*/
-    /*border: 1px solid #ddd;
-    box-shadow: 0 1px 2px -1px #ccc;
-    background-color: #fff;
-    height: auto !important;
-    display: inline-block;
-    border-radius : 3px;*/
 }
 
 form div {
@@ -105,14 +102,48 @@ form div input {
     width: 60%;
 }
 
+.grid2 {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+} 
+
+.list {
+    display:flex;
+    flex-wrap:wrap;
+    height:auto;
+}
+
+.list input {
+    width : 10px;
+}
+
+#listdep {
+    height:80%;
+}
+
+.bottom {
+    margin-top:auto;
+}
+
+.flexcolumn {
+    display:flex;
+    flex-direction:column;
+    height:auto;
+}
+
 input[type="submit"] {
     border: 1px solid #CCC;
     background-color: #F5F5F5;
         color: #666;
 }
 
-#listdep {
+.less {
+    font-size : 0.8em;
+    display:flex;
+    flex-wrap:wrap;
     height:auto;
+    padding:0 !important;
 }
 
 .containerform {
@@ -123,26 +154,21 @@ input[type="submit"] {
     width:75%;
 }
 
+.grid2 > * {
+    width: 48%;
+}
+
+.gridrech {
+    width : 48%;
+    height:100%;
+}
+
 .titreform {
     background-color:#f5f5f5;
     font-size: 16px;
     color: #666;
     padding: 10px 20px;
     font-weight:bold;
-}
-
-.list {
-    display:flex;
-    flex-wrap:wrap;
-    height:auto;
-}
-
-.list div {
-    
-}
-
-.list input {
-    width : 10px;
 }
 
 /*HEADER*/
@@ -239,6 +265,27 @@ footer {
     display: inline-block;
 }
 
+/*@media (min-width: 744px) {
+    #header {
+        visibility:hidden;
+        height:0px;
+    }
+
+    #menu {
+        flex-direction:column;
+        width: 100%;
+    }
+
+    #menu div {
+        width:100%;
+        border:1px solid black;
+    }
+
+    .grid2 {
+        flex-direction:column;
+    }
+}*/
+
 @media (max-width: 544px) {
     #header {
         visibility:hidden;
@@ -254,59 +301,12 @@ footer {
         width:100%;
         border:1px solid black;
     }
-    
-    header {
-        height: auto;
+
+    .grid2 {
+        flex-direction:column;
     }
-    
-    #cartedeFrance {
-        float: left;
-    }
-    
-    #titre {
-        float: left;
-        font-size: 0.8em;
-        margin: 0;
-        padding: 0;
-    }
-    
-    #titre h1 {
-        margin: 0;
-        padding: 0;
-    }
-    
-    #image {
-        float: left;
-    }
-    
-    #connecter {
-        float: left;
-    }
-    
-    #image img {
-        width: 100%
-    }
-    
-    #menu ul {
-        height: auto;
-        padding: 0;
-        width: 100%;
-    }
-    
-    #menu li {
-        border: 1px solid #111;
-        width: 100%;
-    }
-    
-    #nom {
-        margin-left: 51px;
-    }
-    
-    #dept {
-        color: white;
-    }
-    
-    #region {
-        margin-left: 36px;
+
+    .grid2 > * {
+        width:98%;
     }
 }

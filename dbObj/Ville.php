@@ -13,13 +13,13 @@ declare(strict_types=1);
  */
 class Ville
 {
-    private $_id;
-    private $_id_dept;
-    private $nom;
-    private $cp;
-    private $pop;
-    private $lat;
-    private $lon;
+    public $_id;
+    public $_id_dept;
+    public $nom;
+    public $cp;
+    public $pop;
+    public $lat;
+    public $lon;
 
     /**
      * Default constructor
@@ -29,20 +29,17 @@ class Ville
      */
     public function __construct($args)
     {
-        $this->coord = new Coord();
-		// Si notre paramètre est un tableau non vide.
-		if(null != $args)
+        // Si notre paramÃ¨tre est un tableau non vide.
+		if($args != null)
 		{
-            // Alors pour chaque clé, on récupère sa valeur.
-            foreach($args as $key => $value)
-            {
-                // Si la propriété de la classe existe, alors on met à jour sa valeur.
-                if(isset($this->$key) || property_exists($this, $key))
-                {
-                    $this->$key = $value;
-                }
+			// Alors pour chaque clé, on rÃ©cupÃ¨re sa valeur.
+			foreach($args as $key => $value)
+			{
+				// Si la propriété de la classe existe, alors on met à  jour sa valeur.
+				if(isset($this->$key) || property_exists($this, $key))	$this->$key = $value;
             }
         }
+
     }
 /**
      * Set Id
@@ -93,7 +90,7 @@ class Ville
      */
  public function setLat($lat)
     {
-        $this->coord->lat = $lat;
+        $this->lat = $lat;
     }
 
      /**
@@ -102,7 +99,7 @@ class Ville
      */
      public function setLon($lon)
     {
-        $this->coord->lon = $lon;
+        $this->lon = $lon;
     }
 
     /**
@@ -110,7 +107,7 @@ class Ville
      * @param mixed $id
      * @return mixed
      */
-    public function getId() 
+    public function getId()
     {
         return $this->_id;
     }
@@ -120,7 +117,7 @@ class Ville
      * @param mixed $id_dept
      * @return mixed
      */
-    public function getId_Dept() 
+    public function getId_Dept()
     {
         return $this->_id_dept;
     }
@@ -131,7 +128,7 @@ class Ville
      * @param mixed $nom
      * @return mixed
      */
-    public function getNom() : string
+    public function getNom()
     {
         return $this->nom;
     }
@@ -163,7 +160,7 @@ class Ville
      */
     public function getLat() : double
     {
-        return   $this->coord->lat;
+        return   $this->lat;
     }
 
     /**
@@ -173,6 +170,6 @@ class Ville
      */
     public function getLon() : double
     {
-        return   $this->coord->lon;
+        return   $this->lon;
     }
 }
