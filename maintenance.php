@@ -119,7 +119,7 @@ $regions = $connect->getRegions();
             <input type="hidden" id="idregion" name="idregion" value="" />
             <input type="hidden" id="nreg" name="nreg" value="" />
             <div class="grid2">
-                <input type="text" id="nomregion" name="nomregion" value="" />
+                <label>Modifier nom : <input type="text" id="nomregion" name="nomregion" value="" /></label>
                 <input type="submit" value="Modifier" />
             </div>
 
