@@ -108,6 +108,7 @@ form div input {
     justify-content:space-between;
 } 
 
+
 .list {
     display:flex;
     flex-wrap:wrap;
@@ -173,6 +174,21 @@ input[type="submit"] {
 
 #cdep {
     height:20%;
+}
+
+
+.grid3 {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+}
+
+.grid3 > * {
+    width:30%;
+}
+
+.grid3 > label {
+    text-align:right;
 }
 
 /*HEADER*/
