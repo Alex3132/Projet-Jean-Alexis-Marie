@@ -1,0 +1,130 @@
+﻿<html>
+	
+<head>
+	<title>Structure de la base de donn&eacute;es</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Personal Edition 4.9.2.132">
+	<meta name="keywords" content="">
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Projet MongoDB.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Structuredelabasededonnees");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	</head>
+
+<body>
+
+<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Structure de la base de donn&eacute;es</h1>
+				
+				</div>
+			<div id="topic_header_nav">
+				<a href="Structuredusite.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				</div>
+			<div class="clear"></div>
+		</div>
+	<div id="topic_content">
+		
+<p></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts13">Les différentes tables et leur structures :</span></p>
+<p class="rvps2"><span class="rvts11"><br/></span></p>
+<p class="rvps2"><span class="rvts12">Table régions</span></p>
+<ul style="text-indent: 0px; margin-left: 24px; list-style-position: outside; list-style-type: disc;"><ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside; list-style-type: circle;">
+<li class="rvps2"><span class="rvts11">_id</span><span class="rvts6"> : identifiant de la région : int</span></li>
+<li class="rvps2"><span class="rvts11">nom</span><span class="rvts6"> : nom de la région : string</span></li>
+</ul></ul>
+<p class="rvps2"><span class="rvts11"><br/></span></p>
+<p class="rvps2"><span class="rvts12">Table départements</span></p>
+<ul style="text-indent: 0px; margin-left: 24px; list-style-position: outside; list-style-type: disc;"><ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside; list-style-type: circle;">
+<li class="rvps2"><span class="rvts11">_id</span><span class="rvts6"> : identifiant du département : double</span></li>
+<li class="rvps2"><span class="rvts11">nom</span><span class="rvts6"> : nom du département : string</span></li>
+<li class="rvps2"><span class="rvts11">code</span><span class="rvts6"> : code du département : int</span></li>
+<li class="rvps2"><span class="rvts11">_id_région</span><span class="rvts6"> : identification de la région à laquelle il appartient : double</span></li>
+<li class="rvps2"><span class="rvts11">contours</span><span class="rvts6">: contient les informations de tracé : array</span></li>
+</ul></ul>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><a name="tableville"></a>
+<span class="rvts12">Table villes</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<ul style="text-indent: 0px; margin-left: 24px; list-style-position: outside; list-style-type: disc;"><ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside; list-style-type: circle;">
+<li class="rvps2"><span class="rvts11">_id</span><span class="rvts6"> : identifiant de la ville : int</span></li>
+<li class="rvps2"><span class="rvts11">nom</span><span class="rvts6"> : nom de la ville : string</span></li>
+<li class="rvps2"><span class="rvts11">cp</span><span class="rvts6"> : code postal de la ville : string</span></li>
+<li class="rvps2"><span class="rvts11">pop</span><span class="rvts6"> : population de la ville : double</span></li>
+<li class="rvps2"><span class="rvts11">lat</span><span class="rvts6"> : latitude de la ville : double</span></li>
+<li class="rvps2"><span class="rvts11">lon</span><span class="rvts6"> : longitude de la ville : double</span></li>
+<li class="rvps2"><span class="rvts11">_id_dept</span><span class="rvts6"> : identification du département à laquelle elle appartient : double</span></li>
+</ul></ul>
+<p class="rvps2"><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="rvps2"><span class="rvts12">Tables contours</span></p>
+<ul style="text-indent: 0px; margin-left: 24px; list-style-position: outside; list-style-type: disc;"><ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside; list-style-type: circle;">
+<li class="rvps2"><span class="rvts11">_id</span><span class="rvts6"> : identifiant du contours : double</span></li>
+<li class="rvps2"><span class="rvts11">nom</span><span class="rvts6"> : nom du contours : string</span></li>
+<li class="rvps2"><span class="rvts11">poly</span><span class="rvts6"> : dessin du contours : array</span></li>
+</ul></ul>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts12">Tables users</span></p>
+<ul style="text-indent: 0px; margin-left: 24px; list-style-position: outside; list-style-type: disc;"><ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside; list-style-type: circle;">
+<li class="rvps2"><span class="rvts11">_id</span><span class="rvts6"> : identifiant unique de l'utilisateur : int</span></li>
+<li class="rvps2"><span class="rvts11">login</span><span class="rvts6"> : nom de l'utilisateur : string</span></li>
+<li class="rvps2"><span class="rvts11">mail</span><span class="rvts6"> : mail de l'utilisateur : string</span></li>
+<li class="rvps2"><span class="rvts11">mdp</span><span class="rvts6"> : mot de passe de l'utilisateur : string</span></li>
+<li class="rvps2"><span class="rvts11">profil : </span><span class="rvts6">profil de l'utilisateur : string</span></li>
+</ul></ul>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><a name="readonly"></a>
+<span class="rvts12">Tables readonly :</span></p>
+<ul style="text-indent: 0px; margin-left: 24px; list-style-position: outside; list-style-type: disc;"><ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside; list-style-type: circle;">
+<li class="rvps2"><span class="rvts11">_id</span><span class="rvts6"> : identifiant du champ</span></li>
+<li class="rvps2"><span class="rvts11">table</span><span class="rvts6"> : table du champ : string</span></li>
+<li class="rvps2"><span class="rvts11">champs</span><span class="rvts6"> : nom du champ immuable : string</span></li>
+</ul></ul>
+<p></p>
+<p class="rvps4"><span class="rvts14">Créé avec HelpNDoc Personal Edition: </span><a class="rvts15" href="http://www.helpndoc.com/fr/creer-des-livres-numeriques-epub">Écrire des livres électroniques ePub pour l'iPad</a></p>
+</div>
+	
+	<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; 23/01/2017 by Nous. All Rights Reserved.</div>
+		</div>
+	</body>
+	
+</html>
+
