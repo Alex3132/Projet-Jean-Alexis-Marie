@@ -23,17 +23,19 @@ if(isset($_POST['nomregion']) && isset($_POST['idregion'])) {
 $regions = $connect->getRegions();
 
 ?>
-<form action="#" method="post">
-    <fieldset><legend>Modifier la ville</legend>
+
 <?php
 
 if($_SESSION[PROFIL]=='edit' || $_SESSION[PROFIL]=='admin')
 {        
+    
         $vals=[];
         
         
 if(isset($_POST['valeur']))
 {
+    echo "<form action=\"#\" method=\"post\">
+    <fieldset><legend>Modifier la ville</legend>";
     $valeurs=$_POST['valeur'];
         
         foreach($valeurs as $key => $val)
@@ -110,12 +112,14 @@ if(isset($_POST['valeur']))
         
         }
 }
-        
+        if(isset($_POST['valeur'])){
+            echo " <input type=\"submit\" formaction=\"#\" value=\"modifier\">\n
+    </fieldset>\n
+</form>\n";
+        }
         
         ?>
-        <input type="submit" formaction="#" value="modifier">
-    </fieldset>
-</form>
+        
 <div id="listregions">
 
     <form action="#" method="post" id="changeregion" onsubmit="return verifchangeregion()" <?php echo ($_SESSION[PROFIL] == 'admin')? "" : "hidden";?>>
