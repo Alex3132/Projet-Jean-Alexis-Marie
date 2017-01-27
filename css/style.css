@@ -178,7 +178,7 @@ input[type="submit"] {
 
 
 .grid3 {
-    width:100%;
+    width:98%;
     display:flex;
     flex-wrap:wrap;
     padding:0px;
@@ -186,11 +186,12 @@ input[type="submit"] {
 }
 
 .grid3 > * {
-    width:30%;
+    width:25%;
+    margin:0px;
 }
 
 .grid3 > label {
-    text-align:right;
+    text-align:center;
 }
 
 /*HEADER*/
@@ -304,6 +305,7 @@ footer {
     }
 
     .grid2, .grid3 {
+        height:auto;
         flex-direction:column;
     }
 
