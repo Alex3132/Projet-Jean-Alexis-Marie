@@ -148,6 +148,9 @@ function showResultVille($villerep, $connect, $connecte) {
     {
         echo "<input type=\"submit\" formaction=\"index.php?page=maintenance\" value=\"Modifier\">";
     }
+    else if($connecte) {
+        echo "<input type=\"submit\" formaction=\"index.php?page=maintenance\" value=\"Modifier\">";
+    }
 
     echo "</div>";
     echo "</form>";
@@ -286,6 +289,7 @@ function showChoiceVille($villerep, $connect) {
         //$choixville=$_POST['choixville'];
         //$villerep2 = $connect->FindVilleByNomChoosen($choixville);
         showResultVille($villerep2, $connect, $connecte);
+        
     }
         ?>
     </div>
