@@ -295,7 +295,7 @@ EOSVGH;
 
     //foreach($cities->result as $doc) {
     //    list($px, $py) = projection($doc->lon, $doc->lat);
-    //    printf('<g><text x="%d" y="%d">%s</text>'."\n", $px, $py, $doc->nom);
+    //    printf('<g  class="cities"><text x="%d" y="%d">%s</text>'."\n", $px, $py, $doc->nom);
     //    printf('<circle cx="%d" cy="%d" r="5"/></g>'."\n", $px, $py);
     //}
 
