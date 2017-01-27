@@ -330,7 +330,7 @@ function showResultVille($villerep, $connect, $connecte) {
             }
             elseif($key == '_id_dept')
             {
-                echo "<li class=\"departement\"><input type=\"text\" name=\"valeur[]\" value=\"dep=>".$dept->getNom()."\" hidden readonly>Département : ".$dept->getNom()."</li>n" ;
+                echo "<li class=\"departement\"><input type=\"text\" name=\"valeur[]\" value=\"dep=>".$dept->getNom()."\" hidden readonly>Département : ".$dept->getNom()."</li>\n" ;
                 $region = $connect->findRegionById($dept->getIdregion());
                 echo "<li class=\"region\"><input type=\"text\" name=\"valeur[]\" value=\"reg=>".$region->getNom()."\" hidden readonly>Région : ".$region->getNom()."</li>\n";
             }
@@ -381,13 +381,13 @@ function showChoiceVille($villerep, $connect) {
                     if(preg_match("/$depart/i", $dept->getNom()))
                     {//recherche en regex insensitive
                         //affichage des boutons radio name = choixville
-                        echo "<div>Département : ".$dept->getNom().".<input type=\"radio\" name=\"choixville\" value=\"".$villerep[$cle]->nom."\"><input type=\"text\" name=\"valeur[]\" value=\"dep=\>".$villerep[$cle]->nom."\" hidden readonly>".$villerep[$cle]->nom."</div>";
+                        echo "<div>Département : ".$dept->getNom().".<input type=\"radio\" name=\"choixville\" value=\"".$villerep[$cle]->nom."\"><input type=\"text\" name=\"valeur[]\" value=\"dep=>".$villerep[$cle]->nom."\" hidden readonly>".$villerep[$cle]->nom."</div>";
                     }
                 }else
                 {
                     $region = $connect->findRegionById($dept->getIdregion());
                     $stringresult .= "<div class=\"region\"><input type=\"text\" name=\"valeur[]\" value=\"reg=>".$region->getNom()."\" hidden readonly>Région : ".$region->getNom()."</div>\n";
-                    $stringresult .= "<div class=\"dep\"><input type=\"text\" name=\"valeur[]\" value=\"dep=>".$dept->getNom()."\" hidden readonly>Département : ".$dept->getNom()."></div>";
+                    $stringresult .= "<div class=\"dep\"><input type=\"text\" name=\"valeur[]\" value=\"dep=>".$dept->getNom()."\" hidden readonly>Département : ".$dept->getNom()."</div>";
                 }
             }
         }
