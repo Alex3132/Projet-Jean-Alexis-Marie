@@ -6,9 +6,9 @@ require_once("DbUtils.php");
 // cette fonction rétablit la distance à partir des latitudes
 // Les constantes LAT_MOY, TX, TY et RATIO seront définies à partir du contenu de la base de données.
 function projection($lon, $lat) {
-    //return [RATIO*($lon+TX)*cos(LAT_MOY*(M_PI / 180)), RATIO*(-$lat+TY)];
+    return [RATIO*($lon+TX)*cos(LAT_MOY*(M_PI / 180)), RATIO*(-$lat+TY)];
     // le rendu réel devrait plutôt être celui produit par ce calcul
-    return [RATIO*(TX*cos(LAT_MOY*(M_PI / 180)) + $lon*cos($lat*(M_PI / 180))), RATIO*(-$lat+TY)];
+    //return [RATIO*(TX*cos(LAT_MOY*(M_PI / 180)) + $lon*cos($lat*(M_PI / 180))), RATIO*(-$lat+TY)];
 }
 
 
@@ -77,51 +77,6 @@ EOSVGH;
         if ($coord->lon < $lon_min) $lon_min = $coord->lon;
     }
 
-    // récupération des informations globales pour définir l'image à partir de la base de données
-
-
-    // récupération de la box contenant les contours à visualiser
-    // cette requête extrait les "box" à partir des polygones de contours de la France + la Corse et les limites sont
-    // déterminées par fonction d'agrégation sur les coordonnées des points déterminant ces "box".
-    //    $map = <<<EOJSBOXMAP
-    //  function() {
-    //    var res = [180, -180, 90, -90];
-    //    for (i=0; i<this.poly.length; i++) {
-    //      if (res[0] > this.poly[0][0][0]) res[0] = this.poly[0][0][0];
-    //      if (res[1] < this.poly[0][0][0]) res[1] = this.poly[0][0][0];
-    //      if (res[2] > this.poly[0][0][1]) res[2] = this.poly[0][0][1];
-    //      if (res[3] < this.poly[0][0][1]) res[3] = this.poly[0][0][1];
-    //    }
-    //    emit(1, res);
-    //  }
-    //EOJSBOXMAP;
-
-    //    $reduce = <<<EOJSBOXRED
-    //  function(key, vals) {
-    //    var res = [180, -180, 90, -90];
-    //   vals.forEach(function(val) {
-    //      if (res[0] > val[0]) res[0] = val[0];
-    //      if (res[1] < val[1]) res[1] = val[1];
-    //      if (res[2] > val[2]) res[2] = val[2];
-    //      if (res[3] < val[3]) res[3] = val[3];
-    //   });
-    //   return {minmax: res};
-    //  }
-    //EOJSBOXRED;
-
-    //    // préparation de la commande et récupération des résultats dans l'unique valeur de retour
-    //    $boxCmd = new MongoDB\Driver\Command([
-    //      'mapreduce' => 'departements',
-    //      'map' => $map,
-    //      'reduce' => $reduce,
-    //      'out' => ['inline' => 1]]);
-    //    $box = $mgc->executeCommand($dbname, $boxCmd)->toArray()[0];
-
-    //foreach($dep->)
-
-    //$minmax = $box->results[0]->value->minmax;
-
-    //list($lon_min, $lon_max, $lat_min, $lat_max) = $minmax;
     // création des constantes (pour éviter une déclaration avec "global").
     define('RATIO', $height/($lat_max - $lat_min));
     define('LAT_MOY', ($lat_max + $lat_min)/2);
