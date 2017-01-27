@@ -1,6 +1,9 @@
 
 <?php
-
+if(!isset($_SESSION[PROFIL])){
+    header("Location: index.php");
+    http_response_code(303);
+}
 require("DbUtils.php");
 
 if(isset($_POST['nomregion']) && isset($_POST['idregion'])) {
