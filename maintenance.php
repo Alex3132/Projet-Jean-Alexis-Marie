@@ -85,10 +85,12 @@ $regions = $connect->getRegions();
                 }
             }
         }
+
         ?>
-        <input type="submit" formaction="#" value="modifier" />
-    </form>
+        <input type="submit" formaction="#" value="Modifier" />
+      </form>
 </div>
+
 
 <div id="listregions" class="containerform">
     <div class="titreform">Modifier le nom des régions</div>

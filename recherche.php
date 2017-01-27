@@ -42,61 +42,113 @@ if(!empty($_GET['ville']))
     </form>
 </div>
 
+    <?php
+    //en venant d'une ville choisie sur la page d'accueil.
+   if(isset($_GET['ville']) || isset($_POST['nom']))
+   {
+       echo "<div id=\"resultat\" class='containerform'>
+        <div class='titreform'>Résultat de la recherche</div>
+        <form action='#' method='post'>";
+   
+    if(isset($ville) && empty($_POST['nom']))
+       {
+        
+        $nomville = $ville->getNom();
+        
+        
+                $villerep= $connect->FindVilleByNomChoosen($nomville);
+        
+        
+        
+           foreach($villerep as $cle => $valeur)
+           {
+        
+               foreach($villerep[$cle] as $key => $value)
+               {
+            
+                 if($key == '_id_dept')
+                 {
+                
+                     $dept= $connect->FindDepById($value);
+                    
+                        echo "<div class=\"departement\"><input type=\"text\" name=\"valeur[]\" value=\"dep=>".$dept->getNom()."\" hidden readonly> Département : ".$dept->getNom()."</div>\n" ; 
+                        
+                            $region = $connect->findRegionById($dept->getIdregion());
+                            
+                                echo "<div class=\"region\"><input type=\"text\" name=\"valeur[]\" value=\"reg=>".$region->getNom()."\" hidden readonly>Région : ".$region->getNom()."</div>\n";
+                
+                
+                 }
+                 else if($key != '_id') 
+                 {
+                
+                     echo "<div class=\"$key\"><input type=\"text\" name=\"valeur[]\" value=\"$key=>".$value."\" hidden readonly>$key : $value </div>\n";
+                
+                 }
+                   else if ($key == '_id')
+                   {
+                       echo "<input type=\"text\" name=\"valeur[]\" value=\"$key=>".$value."\" hidden readonly>";
+                   }
+               }
+          }
+        
+      }
+   }
+    
+    //traitement si l'on tape soi-même une recherche
+    if(isset($_POST['nom']))
+    {
+        $nomville = $_POST['nom'] ;
+            $villerep = $connect->FindVilleByNom($nomville);//nous ressort le document qui correspond
+     
+    
+    //    if(count($villerep) < 2)
+    //    {//parcours du document si il n'y a qu'une seule réponse
+    //foreach($villerep as $cle => $valeur)
+    //{
+    //    foreach($villerep[$cle] as $key => $value)
+    //    {
+
+    //        $nomville = $ville->getNom();
+
+
+    //        $villerep= $connect->FindVilleByNomChoosen($nomville);
 
 
 
+    //        foreach($villerep as $cle => $valeur)
+    //        {
+
+    //            foreach($villerep[$cle] as $key => $value)
+    //            {
+
+    //                if($key == '_id_dept')
+    //                {
+
+    //                    $dept= $connect->FindDepById($value);
+
+    //                    echo "<div class=\"departement\"><input type=\"text\" name=\"valeur[]\" value=\"dep=>".$dept->getNom()."\" hidden readonly> Département : ".$dept->getNom()."</div>\n" ;
+
+    //                    $region = $connect->findRegionById($dept->getIdregion());
+
+    //                    echo "<div class=\"region\"><input type=\"text\" name=\"valeur[]\" value=\"reg=>".$region->getNom()."\" hidden readonly>Région : ".$region->getNom()."</div>\n";
 
 
+    //                }
+    //                else if($key != '_id')
+    //                {
 
-<div id="resultat" class="containerform">
-    <div class="titreform">Résultat de la recherche</div>
-    <form action="#" method="post">
-        <?php
-        //en venant d'une ville choisie sur la page d'accueil.
+    //                    echo "<div class=\"$key\"><input type=\"text\" name=\"valeur[]\" value=\"$key=>".$value."\" hidden readonly>$key : $value </div>\n";
 
-        if(isset($ville) && empty($_POST['nom']))
-        {
+    //                }
+    //                else if ($key == '_id')
+    //                {
+    //                    echo "<input type=\"text\" name=\"valeur[]\" value=\"$key=>".$value."\" hidden readonly>";
+    //                }
+    //            }
+    //        }
 
-            $nomville = $ville->getNom();
-
-
-            $villerep= $connect->FindVilleByNomChoosen($nomville);
-
-
-
-            foreach($villerep as $cle => $valeur)
-            {
-
-                foreach($villerep[$cle] as $key => $value)
-                {
-
-                    if($key == '_id_dept')
-                    {
-
-                        $dept= $connect->FindDepById($value);
-
-                        echo "<div class=\"departement\"><input type=\"text\" name=\"valeur[]\" value=\"dep=>".$dept->getNom()."\" hidden readonly> Département : ".$dept->getNom()."</div>\n" ;
-
-                        $region = $connect->findRegionById($dept->getIdregion());
-
-                        echo "<div class=\"region\"><input type=\"text\" name=\"valeur[]\" value=\"reg=>".$region->getNom()."\" hidden readonly>Région : ".$region->getNom()."</div>\n";
-
-
-                    }
-                    else if($key != '_id')
-                    {
-
-                        echo "<div class=\"$key\"><input type=\"text\" name=\"valeur[]\" value=\"$key=>".$value."\" hidden readonly>$key : $value </div>\n";
-
-                    }
-                    else if ($key == '_id')
-                    {
-                        echo "<input type=\"text\" name=\"valeur[]\" value=\"$key=>".$value."\" hidden readonly>";
-                    }
-                }
-            }
-
-        }
+    //    }
 
         //traitement si l'on tape soi-même une recherche
         if(isset($_POST['nom']))
@@ -196,11 +248,6 @@ if(!empty($_GET['ville']))
 
             }
 
-
-
-
-
-
         }elseif(isset($_POST['nom'])&& empty($_POST['nom']))
         {
             echo "<div class=\"error\">Veuillez rentrer le nom d'une ville.</div>\n";
@@ -240,21 +287,21 @@ if(!empty($_GET['ville']))
 
         }
 
-
+    }
         ?>
 
         <?php
         require_once("utils.php");
 
         $connecte = isset($_SESSION[ID]);
-
-        if($connecte)
-        {
-
-            echo "<input type=\"submit\" formaction=\"index.php?page=maintenance\" value=\"modifier\">";
-
-        }
-
+    
+            if($connecte && (isset($_GET['ville']) || isset($_POST['nom'])))
+            {
+                
+                echo "<input type=\"submit\" formaction=\"index.php?page=maintenance\" value=\"modifier\">";
+                
+            }
+    
         ?>
     </form>
     <div class="local"></div>
