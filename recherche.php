@@ -48,12 +48,15 @@ if(!empty($_GET['ville']))
 
 
 
-<div id="resultat">
-<form  action="#" method="post">
-    <fieldset><legend>Résultat de la recherche</legend>
+
     <?php
     //en venant d'une ville choisie sur la page d'accueil.
-   
+   if(isset($_GET['ville']) || isset($_POST['nom']))
+   {
+       echo "<div id=\"resultat\">
+<form  action=\"#\" method=\"post\">
+    <fieldset><legend>Résultat de la recherche</legend>";
+   }
     if(isset($ville) && empty($_POST['nom']))
        {
         
@@ -248,7 +251,7 @@ if(!empty($_GET['ville']))
     
         $connecte = isset($_SESSION[ID]);
     
-            if($connecte)
+            if($connecte && (isset($_GET['ville']) || isset($_POST['nom'])))
             {
                 
                 echo "<input type=\"submit\" formaction=\"index.php?page=maintenance\" value=\"modifier\">";
