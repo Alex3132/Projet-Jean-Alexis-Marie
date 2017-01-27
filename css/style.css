@@ -178,8 +178,10 @@ input[type="submit"] {
 
 
 .grid3 {
+    width:100%;
     display:flex;
     flex-wrap:wrap;
+    padding:0px;
     justify-content:space-between;
 }
 
@@ -285,27 +287,6 @@ footer {
     display: inline-block;
 }
 
-/*@media (min-width: 744px) {
-    #header {
-        visibility:hidden;
-        height:0px;
-    }
-
-    #menu {
-        flex-direction:column;
-        width: 100%;
-    }
-
-    #menu div {
-        width:100%;
-        border:1px solid black;
-    }
-
-    .grid2 {
-        flex-direction:column;
-    }
-}*/
-
 @media (max-width: 544px) {
     #header {
         visibility:hidden;
@@ -322,11 +303,11 @@ footer {
         border:1px solid black;
     }
 
-    .grid2 {
+    .grid2, .grid3 {
         flex-direction:column;
     }
 
-    .grid2 > * {
+    .grid2 > *,  .grid3 > *{
         width:98%;
     }
 }
