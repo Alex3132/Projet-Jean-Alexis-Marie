@@ -44,13 +44,12 @@ function verifFormLogin(form) {
 //}
 
 var xhr = null;
-var IDREGION;
 
 function changeRegion() {
     var modifregion = document.getElementById('modifregion');
     var bt = document.getElementById('btModifRegion');
-
-    if (IDREGION === modifregion.value) {
+    var idregion = document.getElementById('idregion').value;
+    if (idregion === modifregion.value) {
         bt.setAttribute('disabled', '');
     } else {
         bt.removeAttribute('disabled');
@@ -70,15 +69,15 @@ function selectionregion(url) {
     var selectregion = document.getElementsByName('selectregion');
     var rate_value;
     var idregion;
-    var nomregion;
     var form = document.getElementById("changeregion");
+    document.getElementById("ldpeps").classList.remove("hidden");
     for (var i = 0; i < selectregion.length; i++) {
         if (selectregion[i].checked) {
             idregion = selectregion[i].value;
             document.getElementById("idregion").value = idregion;
             nomregion = selectregion[i].nextSibling.innerHTML;
+            document.getElementById('nomtitreregion').textContent = nomregion;
             document.getElementById("nomregion").value = nomregion;
-            IDREGION = idregion;
             break;
         }
     }

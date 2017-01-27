@@ -9,13 +9,14 @@ require_once("DbUtils.php");
 if(isset($_POST['idregion'])) {
     $deps = $connect->getDepsByRegion($_POST['idregion']);
     if($deps) {
-        echo "<div id='listdeps'>\n";
-        echo "<ul>\n";
+        echo "<div id='listdeps' class='list'>\n";
         foreach ($deps as $dep)
         {
-            echo "<li><input type='radio' name='selectdep' onclick='selectiondep()' value='".$dep->_id."'/><span>".$dep->nom."</span></li>\n";
+            echo "<div>\n";
+            echo "<input type='radio' name='selectdep' onclick='selectiondep()' value='".$dep->_id."'/>";
+            echo "<span>".$dep->nom."</span>\n";
+            echo "</div>\n";
         }
-        echo "</ul>\n";
         echo "</div>\n";
     }
 }

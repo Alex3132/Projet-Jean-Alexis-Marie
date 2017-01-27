@@ -43,7 +43,16 @@ select {
   -webkit-border-radius: 3px;
   border-radius: 3px;
   border: solid 1px #6b6b6b;
-  height: 25px !important;
+  height: 25px ;
+}
+
+input[type="submit"]:disabled {
+    background-color:lightgray;
+}
+
+input[type="radio"] {
+    height : 10px;
+    width : 10px;
 }
 
 input:not([type="checkbox"]):focus,
@@ -102,6 +111,10 @@ input[type="submit"] {
         color: #666;
 }
 
+#listdep {
+    height:auto;
+}
+
 .containerform {
     border: 1px solid #ddd;
     box-shadow: 0 1px 2px -1px #ccc;
@@ -116,6 +129,20 @@ input[type="submit"] {
     color: #666;
     padding: 10px 20px;
     font-weight:bold;
+}
+
+.list {
+    display:flex;
+    flex-wrap:wrap;
+    height:auto;
+}
+
+.list div {
+    
+}
+
+.list input {
+    width : 10px;
 }
 
 /*HEADER*/
