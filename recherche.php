@@ -22,29 +22,25 @@ if(!empty($_GET['ville']))
 
 ?>
 
-
+<div class="containerform">
+    <div class="titreform">Rechercher une ville</div>
     <form action="#" method="post">
-        <fieldset>
-            <legend>
-                <h2>Rechercher une ville</h2></legend>
-            <div id="recherche">
-                <div class="nom">
-                    <label>Nom :</label>
-                    <input type="text" name="nom" id="nom" value="<?php echo isset($ville) ? $ville->getNom() : "";?>">
-                </div>
-                <div class="dept">
-                    <label>Département : </label>
-                    <input type="text" id="dept" name="dept" value="<?php echo isset($dep) ? $dep->getNom() : ""; ?>" />
-                </div>
-                <div class="region">
-                    <label>Région : </label>
-                    <input type="text" id="region" name="region" value="<?php echo isset($dep) ? $region->getNom() : ""; ?>" />
-                </div>
-                <br/>
-                <input type="submit" value="Envoyer">
-            </div>
-        </fieldset>
+        <div class="nom">
+            <label>Nom :</label>
+            <input type="text" name="nom" id="nom" value="<?php echo isset($ville) ? $ville->getNom() : "";?>" />
+        </div>
+        <div class="dept">
+            <label>Département : </label>
+            <input type="text" id="dept" name="dept" value="<?php echo isset($dep) ? $dep->getNom() : ""; ?>" />
+        </div>
+        <div class="region">
+            <label>Région : </label>
+            <input type="text" id="region" name="region" value="<?php echo isset($dep) ? $region->getNom() : ""; ?>" />
+        </div>
+        <br />
+        <div><label></label><input type="submit" value="Envoyer" /></div>
     </form>
+</div>
 
 
 

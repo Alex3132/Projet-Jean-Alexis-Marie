@@ -16,10 +16,8 @@ $connecte = isset($_SESSION[ID]);
 
 ?>
 
-<div id="menu">
-    <nav>
-        <ul>
-
+<nav id="menu">
+   
             <?php
             foreach($pagesOK as $key => $pg)
             {
@@ -32,20 +30,17 @@ $connecte = isset($_SESSION[ID]);
                     continue;
                 }
 
-                echo '<li>';
+                echo '<div>';
                 echo ($page == $key) ? "<a href=\"index.php?page=$key\" class=\"selected\">$pg</a>" : "<a href=\"index.php?page=$key\">$pg</a>";
-                echo "</li>\n";
+                echo "</div>\n";
             }
 
             if($connecte) 
             {
-                echo "<li><a href='".DECON.".php'>".$pagesdeco[DECON]."</a></li>";
+                echo "<div><a href='".DECON.".php'>".$pagesdeco[DECON]."</a></div>";
             }
 
             ?>
             
-        </ul>
+</nav>
 
-    </nav>
-
-</div>
